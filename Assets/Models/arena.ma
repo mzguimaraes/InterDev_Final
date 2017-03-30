@@ -1,6 +1,6 @@
 //Maya ASCII 2017 scene
 //Name: arena.ma
-//Last modified: Thu, Mar 30, 2017 03:28:05 PM
+//Last modified: Thu, Mar 30, 2017 03:52:47 PM
 //Codeset: 1252
 requires maya "2017";
 currentUnit -l centimeter -a degree -t film;
@@ -13,8 +13,8 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "1A8DCA24-4871-6864-2B00-DF9E17C9A02F";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 32.842908220666757 23.005736933221961 -4.491981581002138 ;
-	setAttr ".r" -type "double3" -30.938352729647143 807.79999999993322 8.2853248387153865e-014 ;
+	setAttr ".t" -type "double3" 21.49129964546589 19.802806095374699 21.449240558309999 ;
+	setAttr ".r" -type "double3" -25.53835272965755 758.59999999988611 -4.0697010426542042e-015 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "2D78EF36-4764-2663-5909-139632D976FA";
 	setAttr -k off ".v" no;
