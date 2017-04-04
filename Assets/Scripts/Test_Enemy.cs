@@ -31,7 +31,7 @@ public class Test_Enemy : MonoBehaviour {
 	Vector3 FlatVecToDest(Transform dest) {
 		//returns a normal vector to dest with y == 0
 		Vector3 toDest = (dest.position - transform.position).normalized;
-		toDest.y = 0f;
+		toDest.y = transform.forward.y;
 		return toDest;
 	}
 
