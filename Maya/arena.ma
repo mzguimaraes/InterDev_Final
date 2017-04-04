@@ -1,6 +1,6 @@
 //Maya ASCII 2017 scene
 //Name: arena.ma
-//Last modified: Tue, Apr 04, 2017 09:58:34 AM
+//Last modified: Tue, Apr 04, 2017 10:12:20 AM
 //Codeset: 1252
 requires maya "2017";
 currentUnit -l centimeter -a degree -t film;
@@ -13,13 +13,13 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "1A8DCA24-4871-6864-2B00-DF9E17C9A02F";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 60.782701372131143 39.486027412488475 -68.504967942820286 ;
+	setAttr ".t" -type "double3" 44.994288832865315 30.087737475562111 -52.269387043882936 ;
 	setAttr ".r" -type "double3" -22.53835272965102 855.79999999987274 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "2D78EF36-4764-2663-5909-139632D976FA";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 94.754805863595706;
+	setAttr ".coi" 70.235509149078808;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -77,8 +77,8 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".ai_translator" -type "string" "orthographic";
 createNode transform -n "pPipe1";
 	rename -uid "F810A361-49E5-9715-0FAD-0385691C7EBA";
-	setAttr ".t" -type "double3" 0 2.7742210181622706 0 ;
-	setAttr ".s" -type "double3" 2.028976050938736 1.4781652449786007 2.028976050938736 ;
+	setAttr ".t" -type "double3" 0 1.8858058045435371 0 ;
+	setAttr ".s" -type "double3" 1.9115728044218649 1.0203659939675733 1.9115728044218649 ;
 createNode mesh -n "pPipeShape1" -p "pPipe1";
 	rename -uid "F2075F35-4AC8-6C71-27F4-078988A60C81";
 	setAttr -k off ".v";
@@ -91,19 +91,19 @@ createNode mesh -n "pPipeShape1" -p "pPipe1";
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "E98B6054-4827-5CE3-815A-D5A12B8CF8E7";
+	rename -uid "AB4F30D1-4918-C0F2-1006-EC80BC7B1440";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "0599B853-4917-8D29-5D52-F186B286B27F";
+	rename -uid "4BBDDB0C-447A-2441-1297-9C8A3EAFD143";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "F0F05D9E-4AB0-294E-5310-FC99B010EF76";
+	rename -uid "45A6F39A-4199-40B5-0212-288E229CD10E";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "8184D396-4DB4-B3BC-B807-12AAC9577FA6";
+	rename -uid "3619C455-4816-6EBE-0C61-B2963CB3F340";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "F12CA5FD-440A-D28E-FFEB-62979F3470DB";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "30DE7B86-4ADF-66D4-9D38-F68E66AEE039";
+	rename -uid "C6ED325A-4794-EEC0-83EE-BC81870FA703";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "F7D39089-4A35-66D1-67B1-DBA0425D1F64";
 	setAttr ".g" yes;
