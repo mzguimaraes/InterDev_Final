@@ -8,12 +8,13 @@ public class Bullet : MonoBehaviour {
 	public float speed = 15f;
 	public int damage = 1;
 
-	void OnCollisionEnter(Collision col) {
-		//TODO figure out why this is bugged
+	void OnTriggerEnter(Collider col) {
+		//TODO refactor
 		PlayerHealthManager phm = col.gameObject.GetComponent<PlayerHealthManager>();
 		if (phm != null) {
 			Debug.Log("hit player");
 			phm.TakeDamage(damage);
+			Destroy(gameObject);
 		}
 		else if (col.gameObject.tag != "Enemy") {
 			Debug.Log("bullet hit");
