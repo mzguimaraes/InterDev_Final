@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col) {
 		//TODO refactor
-		PlayerHealthManager phm = col.gameObject.GetComponent<PlayerHealthManager>();
+		HealthSystem phm = col.gameObject.GetComponent<HealthSystem>();
 		if (phm != null) {
 			Debug.Log("hit player");
 			phm.TakeDamage(damage);
