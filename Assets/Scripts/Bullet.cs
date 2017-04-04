@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour {
 			Destroy(gameObject);
 		}
 		else if (col.gameObject.tag != "Enemy") {
-			Debug.Log("bullet hit");
+			Debug.Log("bullet hit " + col.gameObject.name);
 			Destroy(gameObject);
 		}
 	}
