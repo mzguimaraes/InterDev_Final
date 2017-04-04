@@ -9,7 +9,7 @@ public class PowerUps : MonoBehaviour {
 
 	void Start () {
         int choice = Random.Range(1, 4);
-        Pos = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+        Pos = new Vector3(transform.position.x, transform.position.y + 1.25f, transform.position.z);
 
 		if(choice == 1)
         {
