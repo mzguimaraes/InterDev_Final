@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour {
         // Jumping
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            inputVector.y = 50f;
+            inputVector.y = 15f;
         }
     }
 
