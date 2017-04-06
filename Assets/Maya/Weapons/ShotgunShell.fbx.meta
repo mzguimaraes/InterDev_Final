@@ -1,53 +1,31 @@
 fileFormatVersion: 2
-guid: a734e9ddef37a3944868e27fd640d594
-timeCreated: 1491333086
+guid: 533ca63e89afcbb4580524ef32021c31
+timeCreated: 1491504797
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: pasted__group10
-    100004: pasted__pasted__group4
-    100006: pasted__pasted__group5
-    100008: pasted__pasted__group6
-    100010: pasted__pasted__group7
-    100012: pasted__pasted__group7_pasted__pCube2
-    100014: pasted__pasted__pasted__group5
-    100016: pasted__pasted__pasted__pasted__pCube2
-    100018: pasted__pasted__pasted__pCone1
-    100020: pasted__pasted__pasted__pCube2
-    100022: pasted__pasted__pasted__pCube2 1
-    100024: pasted__pasted__pCone1
-    100026: pasted__pasted__pCube2
-    100028: pasted__pasted__transform1
-    100030: pasted__pasted__transform2
-    100032: pasted__pasted__transform3
-    100034: pasted__pasted__transform4
-    100036: pasted__pasted__transform5
-    100038: pasted__pasted__transform6
-    400000: //RootNode
-    400002: pasted__group10
-    400004: pasted__pasted__group4
-    400006: pasted__pasted__group5
-    400008: pasted__pasted__group6
-    400010: pasted__pasted__group7
-    400012: pasted__pasted__group7_pasted__pCube2
-    400014: pasted__pasted__pasted__group5
-    400016: pasted__pasted__pasted__pasted__pCube2
-    400018: pasted__pasted__pasted__pCone1
-    400020: pasted__pasted__pasted__pCube2
-    400022: pasted__pasted__pasted__pCube2 1
-    400024: pasted__pasted__pCone1
-    400026: pasted__pasted__pCube2
-    400028: pasted__pasted__transform1
-    400030: pasted__pasted__transform2
-    400032: pasted__pasted__transform3
-    400034: pasted__pasted__transform4
-    400036: pasted__pasted__transform5
-    400038: pasted__pasted__transform6
-    2300000: pasted__pasted__group7_pasted__pCube2
-    3300000: pasted__pasted__group7_pasted__pCube2
-    4300000: pasted__pasted__group7_pasted__pCube2
+    100000: group
+    100002: group1
+    100004: pasted__pCylinder1
+    100006: pasted__pCylinder1 1
+    100008: pCylinder1
+    100010: //RootNode
+    400000: group
+    400002: group1
+    400004: pasted__pCylinder1
+    400006: pasted__pCylinder1 1
+    400008: pCylinder1
+    400010: //RootNode
+    2300000: pasted__pCylinder1
+    2300002: pasted__pCylinder1 1
+    2300004: pCylinder1
+    3300000: pasted__pCylinder1
+    3300002: pasted__pCylinder1 1
+    3300004: pCylinder1
+    4300000: pCylinder1
+    4300002: pasted__pCylinder1
+    4300004: pasted__pCylinder1
     9500000: //RootNode
   materials:
     importMaterials: 1
