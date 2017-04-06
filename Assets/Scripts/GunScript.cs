@@ -17,6 +17,7 @@ public class GunScript : MonoBehaviour {
 		if (HaveGun && Input.GetKeyDown (KeyCode.Mouse0)) {
 			if (Pistol = true) {
 				GameObject SmalleBullet = (GameObject)Instantiate (SmallBulletPreFab, transform.position, transform.rotation);
+				SmalleBullet.GetComponent<Rigidbody> ().AddForce (-transform.right * 1000f);
 			}
 		}
 	}
