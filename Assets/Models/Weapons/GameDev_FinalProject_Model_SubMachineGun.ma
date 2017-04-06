@@ -1,6 +1,6 @@
 //Maya ASCII 2017 scene
 //Name: GameDev_FinalProject_Model_SubMachineGun.ma
-//Last modified: Tue, Apr 04, 2017 03:15:37 PM
+//Last modified: Tue, Apr 04, 2017 04:53:31 PM
 //Codeset: 1252
 requires maya "2017";
 currentUnit -l centimeter -a degree -t film;
@@ -13,8 +13,8 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "8CA39DBF-4582-292D-B504-F0B24BCFEAB6";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -4.3158378865018179 5.7888294778615776 -13.979384369805501 ;
-	setAttr ".r" -type "double3" 343.46164725844346 -2323.3999999996922 0 ;
+	setAttr ".t" -type "double3" 4.5345528565068793 9.1852495603415392 -12.441243968154982 ;
+	setAttr ".r" -type "double3" 330.26164725846695 -2358.6000000005483 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "D7E018A7-4DE1-FFCC-15EF-EF9EDDD46198";
 	setAttr -k off ".v" no;
@@ -374,19 +374,19 @@ createNode mesh -n "pCylinderShape1" -p "pCylinder1";
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "2BA870D0-42AE-2CE0-9E01-FD891237A4D2";
+	rename -uid "9E65D75D-4D49-A13A-0BA9-9CB31DCD4DC3";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "697A5213-40F7-5AB5-5C8A-4CA2FEAE13D6";
+	rename -uid "C9493EDA-4979-9765-0DE6-85938105EF85";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "2DAFC4E7-4926-A315-477A-0983FC936F72";
+	rename -uid "944DF180-42B9-F8B1-1F64-C095C795AF32";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "8210B90C-42E5-23AB-E15A-AEA26ACD0111";
+	rename -uid "FC49F54D-4A2A-F238-F6E9-2FACB9FC01DC";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "A60237B8-48EE-6FA7-DAF5-639DFD45F373";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "2ADF1533-496C-FE97-60F9-BF8137608FD3";
+	rename -uid "262A83EB-4E0E-050F-365A-BB8C332F966F";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "E7E81060-4A55-9D76-7649-22BB216D8581";
 	setAttr ".g" yes;

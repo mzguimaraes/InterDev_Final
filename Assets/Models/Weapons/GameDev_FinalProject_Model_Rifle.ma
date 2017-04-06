@@ -1,6 +1,6 @@
 //Maya ASCII 2017 scene
 //Name: GameDev_FinalProject_Model_Rifle.ma
-//Last modified: Tue, Apr 04, 2017 03:14:12 PM
+//Last modified: Tue, Apr 04, 2017 04:02:34 PM
 //Codeset: 1252
 requires maya "2017";
 currentUnit -l centimeter -a degree -t film;
@@ -13,8 +13,8 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "3ED7A713-42D6-BD31-99FC-93B5153EDC4E";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -2.6927916292375684 4.5200267918994106 -16.771567471705939 ;
-	setAttr ".r" -type "double3" -6.9383527296181482 -170.19999999998311 0 ;
+	setAttr ".t" -type "double3" 7.8033243738846698 3.9519737449125762 -15.503520018552937 ;
+	setAttr ".r" -type "double3" -5.1383527296160718 -204.20000000001653 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "32F7711C-4913-A800-5CFF-84BD878290CF";
 	setAttr -k off ".v" no;
@@ -406,19 +406,19 @@ createNode mesh -n "pCylinderShape1" -p "pCylinder1";
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "442D9B22-4650-BD04-847A-57AA77A592CE";
+	rename -uid "D389BD46-4E4D-1A8B-2CF7-A8A736A8BEDD";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "3B3098E8-4E84-A760-D198-858EEE6B98DC";
+	rename -uid "1A525BDE-4058-029F-E7C6-A3A31A568A7A";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "DF85699E-4991-C9B8-69D1-1BACD58A0FF1";
+	rename -uid "0A918615-4DE7-23D6-0318-42BD28E69B76";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "7D585A1E-4444-C0BC-A251-EFB76C2C14A2";
+	rename -uid "19C0F4FC-4C12-0FD8-7D3A-84939292B9F4";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "0CB5A844-4720-735C-5A03-DCB655305870";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "F0EE9316-4481-6E95-88DC-EEB85E091FEF";
+	rename -uid "D9B4FC83-46B8-97B9-D53B-E4BB2FF0EFAA";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "7A2C79E4-4BA0-2533-7F24-5DB9CDBE562D";
 	setAttr ".g" yes;
