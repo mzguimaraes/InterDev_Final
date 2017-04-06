@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour {
 
     public float maxSpeed = 5f;
 
+	public float jumpMagnitude = 15f;
+
     // Raycasting
     bool isGrounded;
 
@@ -28,7 +30,7 @@ public class PlayerController : MonoBehaviour {
         // Jumping
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            inputVector.y = 50f;
+            inputVector.y = jumpMagnitude;
         }
     }
 
