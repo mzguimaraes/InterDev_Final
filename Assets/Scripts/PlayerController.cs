@@ -33,13 +33,14 @@ public class PlayerController : MonoBehaviour {
     }
 
     void FixedUpdate()
-	{
-		rbody.AddRelativeForce (Vector3.up * inputVector.y * 10f);
+    {
+        rbody.AddRelativeForce(Vector3.up * inputVector.y * 10f);
 
-		if (rbody.velocity.magnitude < maxSpeed) {
-			rbody.AddRelativeForce (inputVector * 10f);
-		}
+        if (rbody.velocity.magnitude < maxSpeed)
+        {
+            rbody.AddRelativeForce(inputVector * 10f);
+        }
 
-		isGrounded = Physics.Raycast (transform.position, Vector3.down, 1.1f);
-	}
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f);
+    }
 }
