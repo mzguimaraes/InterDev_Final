@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnCloset : MonoBehaviour {
 
-	public List<GameObject> enemyPrefabs = new List<GameObject>();
+	public static List<GameObject> enemyPrefabs = new List<GameObject>();
 
 	private int numEnemiesToSpawn = 0;
 

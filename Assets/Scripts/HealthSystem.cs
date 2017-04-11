@@ -35,7 +35,8 @@ public class HealthSystem : MonoBehaviour {
 	}
 
 	void EnemyDie() {
-		Destroy(gameObject);
+		//Destroy(gameObject);
+		gameObject.SetActive(false); //so that RoundManager can still check to see that it's dead
 	}
 
 	void PlayerDie() {

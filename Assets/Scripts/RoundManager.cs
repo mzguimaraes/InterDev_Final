@@ -15,21 +15,29 @@ public class RoundManager : MonoBehaviour {
 	 * 
 	 */
 
-	public static RoundManager instance; //singleton
+	private bool inRound = false;
+
+	[HideInInspector] public static RoundManager instance; //singleton
+
+	public List<GameObject> enemyPrefabs = new List<GameObject>();
+
+	public float timeBetweenRounds = 10f;
 
 	private List<SpawnCloset> spawnClosets = new List<SpawnCloset>();
 
 	public List<int> numEnemiesPerRound = new List<int>(5); //create a 5-element list
 	public int enemiesPerRoundDelta = 5;
 
-	public List<float> timeBetweenSpawnsPerRound = new List<int>(5);
-	public int timeBetweenSpawnsDelta = -.25f;
+	public List<float> timeBetweenSpawnsPerRound = new List<float>(5);
+	public float timeBetweenSpawnsDelta = -.25f;
+	public float minimumTimeBetweenSpawns = 1f;
 
 	private int roundNum = 0;
 
-	private List<HealthSystem> enemies = new List<HealthSystem>(); //modified on enemy spawn and death
+	private List<HealthSystem> enemies = new List<HealthSystem>(); //modified on enemy spawn, cleared on new round
 
 	public void TrackEnemy(GameObject enemy) {
+		//adds an enemy to enemies list
 		enemies.Add(enemy.GetComponent<HealthSystem>());
 	}
 
@@ -42,21 +50,21 @@ public class RoundManager : MonoBehaviour {
 		return true;
 	}
 
-	void Start () {
-		//establish singleton
-		instance = this;
-
-		//populate spawnClosets
-		int[] SCarray = FindObjectsOfType<SpawnCloset>();
-		foreach (SpawnCloset sc in SCarray) {
-			spawnClosets.Add(sc);
+	void loadEnemyPrefabsIntoSpawners() {
+		//sets SpawnCloset.enemyPrefabs to this.enemyPrefabs
+		//called at the start of every round in case a mutation changes enemy types being spawned
+		SpawnCloset.enemyPrefabs.Clear();
+		foreach (GameObject enemy in enemyPrefabs) {
+			SpawnCloset.enemyPrefabs.Add(enemy);
 		}
-
-		StartNewRound();
 	}
 
 	void StartNewRound() {
 		roundNum ++;
+		inRound = true;
+
+		loadEnemyPrefabsIntoSpawners();
+		enemies.Clear();
 
 		int numEnemiesInRound;
 		float timeBetweenSpawns;
@@ -73,6 +81,9 @@ public class RoundManager : MonoBehaviour {
 
 			numEnemiesInRound += (roundNum - numEnemiesPerRound.Count) * enemiesPerRoundDelta;
 			timeBetweenSpawns += (roundNum - timeBetweenSpawnsPerRound.Count) * timeBetweenSpawnsDelta;
+
+			//enforce minimum time between spawns
+			timeBetweenSpawns = Mathf.Max(timeBetweenSpawns, minimumTimeBetweenSpawns);
 		}
 
 		//divide numEnemies between all SpawnClosets
@@ -88,13 +99,33 @@ public class RoundManager : MonoBehaviour {
 			}
 		}
 	}
+
+	void Start () {
+		//establish singleton
+		instance = this;
+
+		//populate spawnClosets
+		SpawnCloset[] SCarray = FindObjectsOfType<SpawnCloset>();
+		foreach (SpawnCloset sc in SCarray) {
+			spawnClosets.Add(sc);
+		}
+
+		StartNewRound();
+	}
 		
-	private float betweenRoundCountdown;
+	IEnumerator countdownToNextRound() {
+		float timer = timeBetweenRounds;
+		while (timer > 0f) {
+			timer -= Time.deltaTime;
+			yield return null;
+		}
+		StartNewRound();
+	}
 	
 	void Update () {
-		//TODO figure out how this will work
-//		if (areAllEnemiesDead()) {
-//			
-//		}
+		if (inRound && areAllEnemiesDead()) {
+			inRound = false;
+			StartCoroutine(countdownToNextRound());
+		}
 	}
 }
