@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FreezeTime : MonoBehaviour {
+public class FreezeTime : PowerUpManager {
     	
 	void Update () {
 
@@ -12,8 +12,8 @@ public class FreezeTime : MonoBehaviour {
     {
         if(coll.gameObject.tag == "Player")
         {
-            Destroy(coll.gameObject);
-            PowerUpManager._freezeTimer = Time.timeSinceLevelLoad + 3.0f;
+            _freezeTimer = Time.timeSinceLevelLoad + (10.0f * Time.deltaTime);
+            Destroy(this.gameObject);
         }
     }
 }

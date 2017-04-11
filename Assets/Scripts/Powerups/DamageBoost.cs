@@ -2,15 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageBoost : MonoBehaviour {
+public class DamageBoost : PowerUpManager {
 
-	// Use this for initialization
 	void Start () {
 		
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    void OnCollisionEnter(Collision coll)
+    {
+        if (coll.gameObject.tag == "Player")
+        {
+            _damageTimer = Time.timeSinceLevelLoad + ((10.0f + damagerCounter));
+            StartCoroutine("Damage");
+
+            Destroy(this.gameObject);
+        }
+    }
 }
