@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GunScript : MonoBehaviour {
-	bool HaveGun = false;
-	bool Pistol = false;
+	bool HaveGun = true;
+	bool Pistol = true;
 	bool Revolver = false;
 	bool Rifle = false;
 	public GameObject PistolGun;
@@ -21,15 +21,12 @@ public class GunScript : MonoBehaviour {
 		if (HaveGun && Input.GetKeyDown (KeyCode.Mouse0)) {
 			if (Pistol == true) {
 				GameObject SmallBullet = (GameObject)Instantiate (SmallBulletPreFab, transform.Find(transform.GetChild(0).name+"/BarrelEnd").position , transform.rotation);
-//				SmallBullet.GetComponent<Rigidbody> ().AddForce (-transform.right * 40f, ForceMode.Impulse);
 			}
 			if (Revolver == true) {
 				GameObject LargeBullet = (GameObject)Instantiate (LargeBulletPreFab, transform.Find(transform.GetChild(0).name+"/BarrelEnd").position , transform.rotation);
-//				LargeBullet.GetComponent<Rigidbody> ().AddForce (-transform.right * 40f, ForceMode.Impulse);
 			}
 			if (Rifle == true) {
 				GameObject LargeBullet = (GameObject)Instantiate (LargeBulletPreFab, transform.Find(transform.GetChild(0).name+"/BarrelEnd").position , transform.rotation);
-//				LargeBullet.GetComponent<Rigidbody> ().AddForce (-transform.right * 40f, ForceMode.Impulse);
 			}
 		}
 	}
@@ -52,13 +49,5 @@ public class GunScript : MonoBehaviour {
 				Rifle = true;
 			}
 		}
-//		if (other.gameObject.name == "PistolGun") {
-//			Debug.Log ("PISTOL");
-//			Pistol = true;
-//		}
-//		if (other.gameObject.name == "RifleGun") {
-//			Debug.Log ("RIFLE");
-//			Rifle = true;
-//		}
 	}
 }
