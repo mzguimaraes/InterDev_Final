@@ -12,6 +12,7 @@ public class SpawnCloset : MonoBehaviour {
 	private float spawnCountdown;
 
 	public void startRound(int numEnemies, float timeBetweenSpawns) {
+		Debug.Log(gameObject.name + " spawning " + numEnemies + " with " + timeBetweenSpawns + " secs between");
 		//starts a new round that will spawn numEnemies enemies 
 		//with a semi-random spawn interval centered at timeBetweenSpawns
 

@@ -42,6 +42,10 @@ public class RoundManager : MonoBehaviour {
 	}
 
 	private bool areAllEnemiesDead() {
+		if (enemies.Count == 0) {
+			//null question--no enemies can be dead if no enemies exist
+			return false;
+		}
 		foreach(HealthSystem enemy in enemies) {
 			if (enemy.status != HealthSystem.HealthStatus.Dead) {
 				return false;
@@ -62,6 +66,7 @@ public class RoundManager : MonoBehaviour {
 	void StartNewRound() {
 		roundNum ++;
 		inRound = true;
+		Debug.Log("Starting round " + roundNum);
 
 		loadEnemyPrefabsIntoSpawners();
 		enemies.Clear();
@@ -114,6 +119,7 @@ public class RoundManager : MonoBehaviour {
 	}
 		
 	IEnumerator countdownToNextRound() {
+		Debug.Log("Cooling down after round " + roundNum);
 		float timer = timeBetweenRounds;
 		while (timer > 0f) {
 			timer -= Time.deltaTime;
