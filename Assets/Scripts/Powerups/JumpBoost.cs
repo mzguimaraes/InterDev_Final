@@ -2,21 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpBoost : PowerUpManager {
-
-	void Start () {
-		
-	}
-	
-	void Update () {
-		
-	}
+public class JumpBoost : MonoBehaviour {
 
     void OnCollisionEnter(Collision coll)
     {
         if (coll.gameObject.tag == "Player")
         {
-            _jumpTimer = Time.timeSinceLevelLoad + ((10.0f + jumperCounter) * Time.deltaTime);
+            PowerUpManager._jumpTimer = Time.timeSinceLevelLoad + (10.0f + PowerUpManager.jumperCounter);
+            PowerUpManager.jumpExist = false;
             Destroy(this.gameObject);
         }
     }

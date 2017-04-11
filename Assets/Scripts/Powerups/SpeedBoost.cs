@@ -2,21 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedBoost : PowerUpManager {
-
-	void Start () {
-		
-	}
-	
-	void Update () {
-		
-	}
+public class SpeedBoost : MonoBehaviour {
 
     void OnCollisionEnter(Collision coll)
     {
         if (coll.gameObject.tag == "Player")
         {
-            _speedTimer = Time.timeSinceLevelLoad + ((10.0f + speedCounter) * Time.deltaTime);
+            PowerUpManager._speedTimer = Time.timeSinceLevelLoad + ((10.0f + PowerUpManager.speedCounter));
+            PowerUpManager.speedExist = false;
+
+            
             Destroy(this.gameObject);
         }
     }
