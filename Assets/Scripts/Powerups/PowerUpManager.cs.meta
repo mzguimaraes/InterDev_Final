@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 46dc128823f6e1b4aa4120a080eead30
+timeCreated: 1491338836
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - freeze: {fileID: 1076736893649248, guid: b527d0d2fc1a1b14b8ca5c5a33a4aaa9, type: 2}
+  - damage: {instanceID: 0}
+  - speed: {instanceID: 0}
+  - jump: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
