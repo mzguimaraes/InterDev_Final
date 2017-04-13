@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class OurPlayerController : MonoBehaviour {
 
     Rigidbody rbody;
     Vector3 inputVector;

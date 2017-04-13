@@ -17,19 +17,19 @@ public class GunScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (Rifle);
+		//Debug.Log (Rifle);
 		if (HaveGun && Input.GetKeyDown (KeyCode.Mouse0)) {
 			if (Pistol == true) {
 				GameObject SmallBullet = (GameObject)Instantiate (SmallBulletPreFab, transform.Find(transform.GetChild(0).name+"/BarrelEnd").position , transform.rotation);
-				SmallBullet.GetComponent<Rigidbody> ().AddForce (-transform.right * 40f, ForceMode.Impulse);
+//				SmallBullet.GetComponent<Rigidbody> ().AddForce (-transform.right * 40f, ForceMode.Impulse);
 			}
 			if (Revolver == true) {
 				GameObject LargeBullet = (GameObject)Instantiate (LargeBulletPreFab, transform.Find(transform.GetChild(0).name+"/BarrelEnd").position , transform.rotation);
-				LargeBullet.GetComponent<Rigidbody> ().AddForce (-transform.right * 40f, ForceMode.Impulse);
+//				LargeBullet.GetComponent<Rigidbody> ().AddForce (-transform.right * 40f, ForceMode.Impulse);
 			}
 			if (Rifle == true) {
 				GameObject LargeBullet = (GameObject)Instantiate (LargeBulletPreFab, transform.Find(transform.GetChild(0).name+"/BarrelEnd").position , transform.rotation);
-				LargeBullet.GetComponent<Rigidbody> ().AddForce (-transform.right * 40f, ForceMode.Impulse);
+//				LargeBullet.GetComponent<Rigidbody> ().AddForce (-transform.right * 40f, ForceMode.Impulse);
 			}
 		}
 	}
@@ -40,15 +40,15 @@ public class GunScript : MonoBehaviour {
 			other.transform.rotation = this.transform.rotation;
 			other.transform.position = this.transform.position;
 			if (other.gameObject.name == "PistolGun") {
-				Debug.Log ("PISTOL");
+				//Debug.Log ("PISTOL");
 				Pistol = true;
 			}
 			if (other.gameObject.name == "RevolverGun") {
-				Debug.Log ("RIFLE");
+				//Debug.Log ("Revolver");
 				Revolver = true;
 			}
 			if (other.gameObject.name == "RifleGun") {
-				Debug.Log ("RIFLE");
+				//Debug.Log ("RIFLE");
 				Rifle = true;
 			}
 		}
