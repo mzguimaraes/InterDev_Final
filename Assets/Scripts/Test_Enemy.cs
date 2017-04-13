@@ -67,7 +67,7 @@ public class Test_Enemy : MonoBehaviour {
 
 		//fire bullet
 		if (fireTimer <= 0) {
-			//ShootAt(player);
+			ShootAt(player);
 			fireTimer = fireCooldown;
 		}
 		else 
