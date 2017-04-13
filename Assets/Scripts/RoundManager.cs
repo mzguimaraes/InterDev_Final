@@ -25,10 +25,10 @@ public class RoundManager : MonoBehaviour {
 
 	private List<SpawnCloset> spawnClosets = new List<SpawnCloset>();
 
-	public List<int> numEnemiesPerRound = new List<int>(5); //create a 5-element list
+	public List<int> numEnemiesPerRound = new List<int>();
 	public int enemiesPerRoundDelta = 5;
 
-	public List<float> timeBetweenSpawnsPerRound = new List<float>(5);
+	public List<float> timeBetweenSpawnsPerRound = new List<float>();
 	public float timeBetweenSpawnsDelta = -.25f;
 	public float minimumTimeBetweenSpawns = 1f;
 

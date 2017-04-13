@@ -9,6 +9,8 @@ public class Test_Enemy : MonoBehaviour {
 	//  strafes around player once in range
 	//	shoots at player
 
+	//TODO: make this use physics for movement
+
 	public GameObject bulletPrefab;
 
 	public float moveSpeed = 5f;
@@ -21,11 +23,11 @@ public class Test_Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		fireTimer = fireCooldown;
-		player = FindObjectOfType<OurPlayerController>().transform;
+		player = FindObjectOfType<OurPlayerController>().transform; //may be inefficient TODO
 	}
 
 	void OnCollisionEnter(Collision col) {
-		//melee attack
+		//melee attack TODO
 	}
 
 	Vector3 FlatVecToDest(Transform dest) {
