@@ -66,7 +66,7 @@ public class RoundManager : MonoBehaviour {
 	void StartNewRound() {
 		roundNum ++;
 		inRound = true;
-		Debug.Log("Starting round " + roundNum);
+//		Debug.Log("Starting round " + roundNum);
 
 		loadEnemyPrefabsIntoSpawners();
 		enemies.Clear();
@@ -119,7 +119,7 @@ public class RoundManager : MonoBehaviour {
 	}
 		
 	IEnumerator countdownToNextRound() {
-		Debug.Log("Cooling down after round " + roundNum);
+//		Debug.Log("Cooling down after round " + roundNum);
 		float timer = timeBetweenRounds;
 		while (timer > 0f) {
 			timer -= Time.deltaTime;

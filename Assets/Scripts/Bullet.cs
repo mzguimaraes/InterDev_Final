@@ -11,11 +11,11 @@ public class Bullet : MonoBehaviour {
 	void OnTriggerEnter(Collider col) {
 		HealthSystem health = col.gameObject.GetComponent<HealthSystem>();
 		if (health != null) {
-			Debug.Log("Sending damage to " + col.name);
+//			Debug.Log("Sending damage to " + col.name);
 			health.TakeDamage(damage);
 		}
 		else {
-			Debug.Log("Hit non-health object " + col.name);
+//			Debug.Log("Hit non-health object " + col.name);
 		}
 		//work around gun colliders
 		if (!col.isTrigger && !col.CompareTag("Gun"))

@@ -30,7 +30,7 @@ public class EnemyDeath : MonoBehaviour {
         if (other.gameObject == GameObject.Find("TestSword")) //currently using a test lance--replace with bullet and include enemy health
         {
             float randNum = Random.Range(0f, 100f);
-            Debug.Log(randNum);
+//            Debug.Log(randNum);
             if (randNum > 95f)
             {
                 Instantiate(bazookaPickupPrefab, enemyPosition, Quaternion.identity);

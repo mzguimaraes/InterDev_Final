@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine.SceneManagement;
-
 public class HealthSystem : MonoBehaviour {
 	//base class for player and enemy health components
 
@@ -29,7 +27,7 @@ public class HealthSystem : MonoBehaviour {
 	}
 
 	public void TakeDamage(int amount) {
-		Debug.Log(gameObject.name + " took damage");
+//		Debug.Log(gameObject.name + " took damage");
 		currHealth -= amount;
 	}
 
@@ -45,10 +43,12 @@ public class HealthSystem : MonoBehaviour {
 	}
 
 	void PlayerDie() {
-		GetComponent<PlayerController>().enabled = false;
-		if (Input.GetKeyDown(KeyCode.R)) {
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-		}
+		//Disable input and enable restart
+		GetComponent<OurPlayerController>().enabled = false;
+		GetComponent<MouseLook>().enabled = false;
+		GetComponentInChildren<GunScript>().enabled = false;
+
+		GetComponent<PlayerRestart>().Activate();
 	}
 
 	void Die() {
@@ -59,7 +59,7 @@ public class HealthSystem : MonoBehaviour {
 			PlayerDie();
 		}
 		else {
-			Debug.Log("Die() called on undying object " + gameObject.name);
+//			Debug.Log("Die() called on undying object " + gameObject.name);
 		}
 	}
 	
