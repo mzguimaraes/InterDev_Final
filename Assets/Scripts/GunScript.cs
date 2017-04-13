@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GunScript : MonoBehaviour {
-	bool HaveGun = false;
-	bool Pistol = false;
+	bool HaveGun = true;
+	bool Pistol = true;
 	bool Revolver = false;
 	bool Rifle = false;
 	public GameObject PistolGun;
@@ -18,27 +18,28 @@ public class GunScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log (Rifle);
+		//See if the player has a gun at all and if they press the LMB
 		if (HaveGun && Input.GetKeyDown (KeyCode.Mouse0)) {
+			//if they have a pistol, shoot a pistol bullet, same goes for the revolver and rifle variables
 			if (Pistol == true) {
 				GameObject SmallBullet = (GameObject)Instantiate (SmallBulletPreFab, transform.Find(transform.GetChild(0).name+"/BarrelEnd").position , transform.rotation);
-//				SmallBullet.GetComponent<Rigidbody> ().AddForce (-transform.right * 40f, ForceMode.Impulse);
 			}
 			if (Revolver == true) {
 				GameObject LargeBullet = (GameObject)Instantiate (LargeBulletPreFab, transform.Find(transform.GetChild(0).name+"/BarrelEnd").position , transform.rotation);
-//				LargeBullet.GetComponent<Rigidbody> ().AddForce (-transform.right * 40f, ForceMode.Impulse);
 			}
 			if (Rifle == true) {
 				GameObject LargeBullet = (GameObject)Instantiate (LargeBulletPreFab, transform.Find(transform.GetChild(0).name+"/BarrelEnd").position , transform.rotation);
-//				LargeBullet.GetComponent<Rigidbody> ().AddForce (-transform.right * 40f, ForceMode.Impulse);
 			}
 		}
 	}
 	void OnTriggerEnter(Collider other){
+		//if the player comes across a gun with the tag "gun" they will pick it up, have it parented to the players "CurrentGun" child and set it to the transform
 		if (other.gameObject.tag == "Gun") {
 			HaveGun = true;
 			other.transform.SetParent (transform);
 			other.transform.rotation = this.transform.rotation;
 			other.transform.position = this.transform.position;
+			//each gun has their name that coorrelates with the boolean that works within update to shoot the proper bullet
 			if (other.gameObject.name == "PistolGun") {
 				//Debug.Log ("PISTOL");
 				Pistol = true;
@@ -52,13 +53,5 @@ public class GunScript : MonoBehaviour {
 				Rifle = true;
 			}
 		}
-//		if (other.gameObject.name == "PistolGun") {
-//			Debug.Log ("PISTOL");
-//			Pistol = true;
-//		}
-//		if (other.gameObject.name == "RifleGun") {
-//			Debug.Log ("RIFLE");
-//			Rifle = true;
-//		}
 	}
 }
