@@ -31,6 +31,7 @@ public class SpeedBoost : MonoBehaviour
     IEnumerator SpeedEffect()
     {
         ourPlayerController.maxSpeed = 30f;
+        ourPlayerController.forceVariable = 18f;
         yield return new WaitForSeconds(10);
 
         SpeedReset();
