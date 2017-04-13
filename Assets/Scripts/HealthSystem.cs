@@ -59,7 +59,7 @@ public class HealthSystem : MonoBehaviour {
 			PlayerDie();
 		}
 		else {
-			Debug.Log("Die() called on undying object!");
+			Debug.Log("Die() called on undying object " + gameObject.name);
 		}
 	}
 	
