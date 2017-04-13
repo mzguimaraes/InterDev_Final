@@ -10,15 +10,16 @@ public class Bullet : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col) {
 		//TODO refactor
-		HealthSystem health = col.gameObject.GetComponent<HealthSystem>();
-		if (health != null) {
-			Debug.Log("Sending damage to " + col.name);
-			health.TakeDamage(damage);
+		HealthSystem phm = col.gameObject.GetComponent<HealthSystem>();
+		if (phm != null) {
+			Debug.Log("hit player");
+			phm.TakeDamage(damage);
+			Destroy(gameObject);
 		}
-		else {
-			Debug.Log("Hit non-health object " + col.name);
+		else if (col.gameObject.tag != "Enemy") {
+			Debug.Log("bullet hit " + col.gameObject.name);
+			Destroy(gameObject);
 		}
-		Destroy(gameObject);
 	}
 
 	void Update () {

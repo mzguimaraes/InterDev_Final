@@ -16,20 +16,15 @@ public class HealthSystem : MonoBehaviour {
 	public int maxHealth = 3;
 	private int currHealth;
 
-	private HealthStatus status = HealthStatus.Healthy;
-	public HealthStatus Status {
-		get {
-			return status;
-		}
-	}
+	[HideInInspector] public HealthStatus status;
 
 	// Use this for initialization
 	void Start () {
 		currHealth = maxHealth;
+		status = HealthStatus.Healthy;
 	}
 
 	public void TakeDamage(int amount) {
-		Debug.Log(gameObject.name + " took damage");
 		currHealth -= amount;
 	}
 
@@ -40,8 +35,7 @@ public class HealthSystem : MonoBehaviour {
 	}
 
 	void EnemyDie() {
-		//Destroy(gameObject);
-		gameObject.SetActive(false); //so that RoundManager can still check to see that it's dead
+		Destroy(gameObject);
 	}
 
 	void PlayerDie() {
