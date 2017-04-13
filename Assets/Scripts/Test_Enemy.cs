@@ -21,7 +21,7 @@ public class Test_Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		fireTimer = fireCooldown;
-		player = FindObjectOfType<PlayerController>().transform;
+		player = FindObjectOfType<OurPlayerController>().transform;
 	}
 
 	void OnCollisionEnter(Collision col) {
@@ -51,7 +51,7 @@ public class Test_Enemy : MonoBehaviour {
 
 	void ShootAt(Transform target) {
 		//fires one bullet toward target
-		Debug.Log("fire!");
+//		Debug.Log("fire!");
 		Vector3 toTarget = (target.position - transform.position).normalized;
 		Instantiate(bulletPrefab, transform.position, Quaternion.LookRotation(toTarget));
 	}
