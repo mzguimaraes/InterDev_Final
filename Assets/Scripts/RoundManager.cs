@@ -47,7 +47,7 @@ public class RoundManager : MonoBehaviour {
 			return false;
 		}
 		foreach(HealthSystem enemy in enemies) {
-			if (enemy.status != HealthSystem.HealthStatus.Dead) {
+			if (enemy.Status != HealthSystem.HealthStatus.Dead) {
 				return false;
 			}
 		}

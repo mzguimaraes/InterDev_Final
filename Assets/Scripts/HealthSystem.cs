@@ -16,15 +16,20 @@ public class HealthSystem : MonoBehaviour {
 	public int maxHealth = 3;
 	private int currHealth;
 
-	[HideInInspector] public HealthStatus status;
+	private HealthStatus status = HealthStatus.Healthy;
+	public HealthStatus Status {
+		get {
+			return status;
+		}
+	}
 
 	// Use this for initialization
 	void Start () {
 		currHealth = maxHealth;
-		status = HealthStatus.Healthy;
 	}
 
 	public void TakeDamage(int amount) {
+		Debug.Log(gameObject.name + " took damage");
 		currHealth -= amount;
 	}
 

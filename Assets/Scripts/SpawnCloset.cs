@@ -9,7 +9,7 @@ public class SpawnCloset : MonoBehaviour {
 	private int numEnemiesToSpawn = 0;
 
 	private float spawnInterval;
-	private float spawnCountdown;
+	private float spawnCountdown = 0f;
 
 	public void startRound(int numEnemies, float timeBetweenSpawns) {
 		Debug.Log(gameObject.name + " spawning " + numEnemies + " with " + timeBetweenSpawns + " secs between");
@@ -19,10 +19,6 @@ public class SpawnCloset : MonoBehaviour {
 		numEnemiesToSpawn = numEnemies;
 		spawnInterval = timeBetweenSpawns;
 		spawnCountdown = 0f;
-	}
-
-	void Start() {
-		spawnCountdown = 1f;
 	}
 
 	float getSpawnCountdown() {
@@ -49,6 +45,7 @@ public class SpawnCloset : MonoBehaviour {
 			spawnCountdown -= Time.deltaTime;
 
 			if (spawnCountdown <= 0f) {
+				//Debug.Log("spawn timer: " + spawnCountdown);
 				spawnEnemy();
 			}
 		}
