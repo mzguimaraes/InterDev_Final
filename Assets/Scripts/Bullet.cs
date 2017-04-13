@@ -14,8 +14,9 @@ public class Bullet : MonoBehaviour {
 			Debug.Log("Sending damage to " + col.name);
 			health.TakeDamage(damage);
 		}
-		else {
-			Debug.Log("Hit non-health object " + col.name);
+		else if (col.gameObject.tag != "Enemy") {
+			Debug.Log("bullet hit " + col.gameObject.name);
+			Destroy(gameObject);
 		}
 		//work around gun colliders
 		if (!col.isTrigger && !col.CompareTag("Gun"))
