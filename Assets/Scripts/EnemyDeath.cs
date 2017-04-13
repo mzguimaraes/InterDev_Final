@@ -33,24 +33,25 @@ public class EnemyDeath : MonoBehaviour {
             Debug.Log(randNum);
             if (randNum > 95f)
             {
-                Instantiate(bazookaPickupPrefab, enemyPosition, Quaternion.identity);
+                Transform newBazookaPickup = (Transform)Instantiate(bazookaPickupPrefab, enemyPosition, Quaternion.identity);
             }
             else if (randNum > 85f)
             {
-                Instantiate(sniperPickupPrefab, enemyPosition, Quaternion.identity);
+                Transform newSniperPickup = (Transform)Instantiate(sniperPickupPrefab, enemyPosition, Quaternion.identity);
             }
             else if (randNum > 70f)
             {
-                Instantiate(shotgunPickupPrefab, enemyPosition, Quaternion.identity);
+                Transform newShotgunPickup = (Transform)Instantiate(shotgunPickupPrefab, enemyPosition, Quaternion.identity);
             }
             else if (randNum > 50f)
             {
-                Instantiate(pistolPickupPrefab, enemyPosition, Quaternion.identity);
+                Transform newPistolPickup = (Transform)Instantiate(pistolPickupPrefab, enemyPosition, Quaternion.identity);
             }
             else if (randNum > 25f)
             {
-                Instantiate(healthPickupPrefab, enemyPosition, Quaternion.identity);
+                Transform newHealthPickup = (Transform)Instantiate(healthPickupPrefab, enemyPosition, Quaternion.identity);
             }
+            Destroy(thisEnemy);
         }
         
     }
