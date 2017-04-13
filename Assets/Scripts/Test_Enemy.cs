@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(HealthSystem))]
 public class Test_Enemy : MonoBehaviour {
 	//Enemy created to test basic capabilities
 	//has the following behaviors:
@@ -22,6 +23,8 @@ public class Test_Enemy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		gameObject.tag = "Enemy";
+
 		fireTimer = fireCooldown;
 		player = FindObjectOfType<OurPlayerController>().transform; //may be inefficient TODO
 	}
