@@ -41,16 +41,22 @@ public class GunScript : MonoBehaviour {
 			other.transform.position = this.transform.position;
 			//each gun has their name that coorrelates with the boolean that works within update to shoot the proper bullet
 			if (other.gameObject.name == "PistolGun") {
-				//Debug.Log ("PISTOL");
+//				Debug.Log ("PISTOL");
 				Pistol = true;
+				Revolver = false;
+				Rifle = false;
 			}
 			if (other.gameObject.name == "RevolverGun") {
-				//Debug.Log ("Revolver");
+//				Debug.Log ("Revolver");
 				Revolver = true;
+				Pistol = false;
+				Rifle = false;
 			}
 			if (other.gameObject.name == "RifleGun") {
-				//Debug.Log ("RIFLE");
+//				Debug.Log ("RIFLE");
 				Rifle = true;
+				Pistol = false;
+				Revolver = false;
 			}
 		}
 	}
