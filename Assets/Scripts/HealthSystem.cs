@@ -12,9 +12,9 @@ public class HealthSystem : MonoBehaviour {
 	};
 
 	public int maxHealth = 3;
-	private int currHealth;
+	public int currHealth;
 
-	private HealthStatus status = HealthStatus.Healthy;
+    private HealthStatus status = HealthStatus.Healthy;
 	public HealthStatus Status {
 		get {
 			return status;
@@ -31,6 +31,11 @@ public class HealthSystem : MonoBehaviour {
 		currHealth -= amount;
 	}
 
+    public void AddHealth(int amount)
+    {
+        currHealth += amount;
+    }
+
 	void CheckHealthStatus() {
 		if (currHealth <= 0) {
 			status = HealthStatus.Dead;
@@ -38,8 +43,12 @@ public class HealthSystem : MonoBehaviour {
 	}
 
 	void EnemyDie() {
-		//Destroy(gameObject);
-		gameObject.SetActive(false); //so that RoundManager can still check to see that it's dead
+        //Destroy(gameObject);
+        //spawn pickups by calling enemy death script
+        EnemyDeath death = gameObject.GetComponent<EnemyDeath>();
+        death.SpawnPickup();
+
+        gameObject.SetActive(false); //so that RoundManager can still check to see that it's dead
 	}
 
 	void PlayerDie() {
