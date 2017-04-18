@@ -28,5 +28,6 @@ public class DamageBoost : MonoBehaviour {
     void DamageReset()
     {
         Bullet.damage = 1;
+        Destroy(this.gameObject);
     }
 }

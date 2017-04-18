@@ -6,6 +6,8 @@ public class PowerUpManager : MonoBehaviour {
 
     public GameObject freeze, damage, speed, jump, baseFreeze, baseDamage, baseSpeed, baseJump;
 
+    public static float baseEnemySpeed;
+
     static public bool damageExist, freezeExist, speedExist, jumpExist;
     static public int freezerCounter, damagerCounter, jumperCounter, speedCounter;
 
@@ -13,6 +15,8 @@ public class PowerUpManager : MonoBehaviour {
 
     void Start()
     {
+        baseEnemySpeed = 5f;
+
         freezerCounter = 0;
         speedCounter = 0;
         jumperCounter = 0;
