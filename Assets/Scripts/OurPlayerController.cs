@@ -21,6 +21,7 @@ public class OurPlayerController : MonoBehaviour {
     }
 	
 	void Update () {
+        Debug.Log(Bullet.damage);
         float horizontal = Input.GetAxis("Horizontal"); // A/D
         float vertical = Input.GetAxis("Vertical"); // W/S
 

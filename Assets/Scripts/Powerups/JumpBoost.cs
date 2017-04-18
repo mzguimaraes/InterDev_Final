@@ -35,5 +35,6 @@ public class JumpBoost : MonoBehaviour {
     void JumpReset()
     {
         ourPlayerController.jumpMagnitude = 15f;
+        Destroy(this.gameObject);
     }
 }

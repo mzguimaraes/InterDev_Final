@@ -42,7 +42,6 @@ public class SpeedBoost : MonoBehaviour
         PowerUpManager.speedCounter += 5;
         PowerUpManager._speedTimer = Time.timeSinceLevelLoad + (10f + PowerUpManager.speedCounter);
 
-        Destroy(gameObject);
-
+        Destroy(this.gameObject);
     }
 }
