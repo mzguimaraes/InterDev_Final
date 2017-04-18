@@ -6,7 +6,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
 	public float speed = 15f;
-	public int damage = 1;
+	static public int damage = 1;
 
 	void OnTriggerEnter(Collider col) {
 		HealthSystem health = col.gameObject.GetComponent<HealthSystem>();
