@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class DamageBoost : MonoBehaviour {
 
-    Bullet bullet;
-
-    void Start()
-    {
-        bullet = GameObject.FindGameObjectWithTag("Bullet").GetComponent<Bullet>();
-    }
-
     void OnCollisionEnter(Collision coll)
     {
         if (coll.gameObject.tag == "Player")
@@ -26,7 +19,7 @@ public class DamageBoost : MonoBehaviour {
 
     IEnumerator DamageEffect()
     {
-        bullet.damage = 5;
+        Bullet.damage = 5;
         yield return new WaitForSeconds(15);
 
         DamageReset();
@@ -34,6 +27,6 @@ public class DamageBoost : MonoBehaviour {
 
     void DamageReset()
     {
-        bullet.damage = 1;
+        Bullet.damage = 1;
     }
 }
