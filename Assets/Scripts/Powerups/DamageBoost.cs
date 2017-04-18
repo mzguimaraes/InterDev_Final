@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DamageBoost : MonoBehaviour {
 
-    OurPlayerController ourPlayerController;
+    Bullet bullet;
 
     void Start()
     {
-        ourPlayerController = GameObject.FindGameObjectWithTag("Player").GetComponent<OurPlayerController>();
+        bullet = GameObject.FindGameObjectWithTag("Bullet").GetComponent<Bullet>();
     }
 
     void OnCollisionEnter(Collision coll)
@@ -26,7 +26,7 @@ public class DamageBoost : MonoBehaviour {
 
     IEnumerator DamageEffect()
     {
-        ourPlayerController.jumpMagnitude = 40f;
+        bullet.damage = 5;
         yield return new WaitForSeconds(15);
 
         DamageReset();
@@ -34,6 +34,6 @@ public class DamageBoost : MonoBehaviour {
 
     void DamageReset()
     {
-        ourPlayerController.jumpMagnitude = 15f;
+        bullet.damage = 1;
     }
 }
