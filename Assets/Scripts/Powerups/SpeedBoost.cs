@@ -29,7 +29,7 @@ public class SpeedBoost : MonoBehaviour
     IEnumerator SpeedEffect()
     {
         ourPlayerController.maxSpeed = 16f;
-        ourPlayerController.forceVariable = 12f;
+        ourPlayerController.forceVariable = 60f;
         yield return new WaitForSeconds(15);
 
         SpeedReset();
@@ -38,7 +38,7 @@ public class SpeedBoost : MonoBehaviour
     void SpeedReset()
     {
         ourPlayerController.maxSpeed = 5f;
-        ourPlayerController.forceVariable = 10f;
+        ourPlayerController.forceVariable = 50f;
         PowerUpManager.speedCounter += 5;
         PowerUpManager._speedTimer = Time.timeSinceLevelLoad + (10f + PowerUpManager.speedCounter);
 
