@@ -9,7 +9,7 @@ public class OurPlayerController : MonoBehaviour {
 
     public float maxSpeed = 5f;
 
-    public float forceVariable = 10f;
+    public float forceVariable = 50f;
 
 	public float jumpMagnitude = 15f;
 
