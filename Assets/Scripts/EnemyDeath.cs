@@ -6,52 +6,27 @@ public class EnemyDeath : MonoBehaviour {
 
     //A script for enemy death and pickups left behind
     //includes health and weapons--high drop rate
-    //destroys enemy upon collision with object (testSword in this case)
 
-    GameObject thisEnemy;
-    public Transform pistolPickupPrefab;
-    public Transform shotgunPickupPrefab;
-    public Transform bazookaPickupPrefab;
-    public Transform sniperPickupPrefab;
+    public Transform revolverPickupPrefab;
+    public Transform riflePickupPrefab;
     public Transform healthPickupPrefab;
-    Vector3 enemyPosition;
 
-	void Start () {
-        thisEnemy = this.gameObject;
-	}
-
-	void Update () {
-        enemyPosition = thisEnemy.transform.position;
-	}
-
-    //if enemy touches sword, it dies and randomly spawns health or weapons
-    void OnTriggerEnter(Collider other)
+    public void SpawnPickup()
     {
-        if (other.gameObject == GameObject.Find("TestSword")) //currently using a test lance--replace with bullet and include enemy health
+        //Spawn Pickups
+        float randNum = Random.Range(0f, 100f);
+        if (randNum > 95f)
         {
-            float randNum = Random.Range(0f, 100f);
-//            Debug.Log(randNum);
-            if (randNum > 95f)
-            {
-                Instantiate(bazookaPickupPrefab, enemyPosition, Quaternion.identity);
-            }
-            else if (randNum > 85f)
-            {
-                Instantiate(sniperPickupPrefab, enemyPosition, Quaternion.identity);
-            }
-            else if (randNum > 70f)
-            {
-                Instantiate(shotgunPickupPrefab, enemyPosition, Quaternion.identity);
-            }
-            else if (randNum > 50f)
-            {
-                Instantiate(pistolPickupPrefab, enemyPosition, Quaternion.identity);
-            }
-            else if (randNum > 25f)
-            {
-                Instantiate(healthPickupPrefab, enemyPosition, Quaternion.identity);
-            }
+            Instantiate(riflePickupPrefab, gameObject.transform.position, Quaternion.identity);
         }
-        
+        else if (randNum > 85f)
+        {
+            Instantiate(revolverPickupPrefab, gameObject.transform.position, Quaternion.identity);
+        }
+        else if (randNum > 60f)
+        {
+            Instantiate(healthPickupPrefab, gameObject.transform.position, Quaternion.identity);
+        }
     }
+
 }
