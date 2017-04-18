@@ -11,7 +11,7 @@ public class OurPlayerController : MonoBehaviour {
 
     public float forceVariable = 50f;
 
-	public float jumpMagnitude = 15f;
+	public float jumpMagnitude = 5f;
 
     // Raycasting
     bool isGrounded;
