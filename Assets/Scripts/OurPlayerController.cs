@@ -27,7 +27,7 @@ public class OurPlayerController : MonoBehaviour {
         inputVector = new Vector3(horizontal, 0, vertical);
 
         // Turning
-        transform.Rotate(0f, Input.GetAxis("Mouse X") * Time.deltaTime * 300f, 0);
+        //transform.Rotate(0f, Input.GetAxis("Mouse X") * Time.deltaTime * 300f, 0);
 
         // Jumping
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
