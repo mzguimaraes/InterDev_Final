@@ -9,7 +9,9 @@ public class OurPlayerController : MonoBehaviour {
 
     public float maxSpeed = 5f;
 
-	public float jumpMagnitude = 15f;
+    public float forceVariable = 50f;
+
+	public float jumpMagnitude = 5f;
 
     // Raycasting
     bool isGrounded;
@@ -40,7 +42,7 @@ public class OurPlayerController : MonoBehaviour {
 
         if (rbody.velocity.magnitude < maxSpeed)
         {
-            rbody.AddRelativeForce(inputVector * 10f);
+            rbody.AddRelativeForce(inputVector * forceVariable);
         }
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f);

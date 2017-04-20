@@ -35,7 +35,13 @@ public class GunScript : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		//if the player comes across a gun with the tag "gun" they will pick it up, have it parented to the players "CurrentGun" child and set it to the transform
 		if (other.gameObject.tag == "Gun") {
+			if (this.transform.childCount > 0) {
+				Destroy (this.transform.GetChild (0).gameObject);
+			}
+//			GameObject PlayersGun = other.gameObject;
 			HaveGun = true;
+            Behaviour halo = (Behaviour)other.gameObject.GetComponent("Halo");
+            halo.enabled = false;
 			other.transform.SetParent (transform);
 			other.transform.rotation = this.transform.rotation;
 			other.transform.position = this.transform.position;

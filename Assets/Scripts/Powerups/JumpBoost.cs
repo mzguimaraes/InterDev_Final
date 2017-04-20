@@ -4,13 +4,37 @@ using UnityEngine;
 
 public class JumpBoost : MonoBehaviour {
 
+    OurPlayerController ourPlayerController;
+
+    void Start()
+    {
+        ourPlayerController = GameObject.FindGameObjectWithTag("Player").GetComponent<OurPlayerController>();
+    }
+
     void OnCollisionEnter(Collision coll)
     {
         if (coll.gameObject.tag == "Player")
         {
             PowerUpManager._jumpTimer = Time.timeSinceLevelLoad + (10.0f + PowerUpManager.jumperCounter);
             PowerUpManager.jumpExist = false;
-            Destroy(this.gameObject);
+
+            StartCoroutine("JumpEffect");
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            gameObject.GetComponent<SphereCollider>().enabled = false;
         }
+    }
+
+    IEnumerator JumpEffect()
+    {
+        ourPlayerController.jumpMagnitude = 12f;
+        yield return new WaitForSeconds(15);
+
+        JumpReset();
+    }
+
+    void JumpReset()
+    {
+        ourPlayerController.jumpMagnitude = 5f;
+        Destroy(this.gameObject);
     }
 }

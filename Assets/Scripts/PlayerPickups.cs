@@ -8,8 +8,10 @@ public class PlayerPickups : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Pickups"))
+        if (other.gameObject.CompareTag("HealthPickup"))
         {
+            HealthSystem health = gameObject.GetComponent<HealthSystem>();
+            health.AddHealth(3);
             Destroy(other.gameObject);
             //do other stuff like parent to the weapon or add health
         }

@@ -20,8 +20,6 @@ public class SpeedBoost : MonoBehaviour
             PowerUpManager._speedTimer = Time.timeSinceLevelLoad + ((10.0f + PowerUpManager.speedCounter));
             PowerUpManager.speedExist = false;
 
-
-            Destroy(this.gameObject);
             StartCoroutine("SpeedEffect");
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             gameObject.GetComponent<SphereCollider>().enabled = false;
@@ -30,16 +28,17 @@ public class SpeedBoost : MonoBehaviour
 
     IEnumerator SpeedEffect()
     {
-        ourPlayerController.maxSpeed = 30f;
-        yield return new WaitForSeconds(10);
+        ourPlayerController.maxSpeed = 12f;
+        ourPlayerController.forceVariable = 60f;
+        yield return new WaitForSeconds(15);
 
         SpeedReset();
     }
 
     void SpeedReset()
     {
-        Debug.Log("RESET");
         ourPlayerController.maxSpeed = 5f;
+        ourPlayerController.forceVariable = 50f;
         PowerUpManager.speedCounter += 5;
         PowerUpManager._speedTimer = Time.timeSinceLevelLoad + (10f + PowerUpManager.speedCounter);
 

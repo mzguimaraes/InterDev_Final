@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour {
 	public float despawnTimer = 10f;
 	private float despawnCountdown;
 	public float speed = 15f;
-	public int damage = 1;
+	static public int damage = 1;
 
 	void Start () {
 		despawnCountdown = despawnTimer;
