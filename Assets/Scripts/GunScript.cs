@@ -38,7 +38,6 @@ public class GunScript : MonoBehaviour {
 			if (this.transform.childCount > 0) {
 				Destroy (this.transform.GetChild (0).gameObject);
 			}
-//			GameObject PlayersGun = other.gameObject;
 			HaveGun = true;
             Behaviour halo = (Behaviour)other.gameObject.GetComponent("Halo");
             halo.enabled = false;
