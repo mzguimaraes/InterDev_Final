@@ -17,6 +17,8 @@ public class GunScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//rotate
+
 		//Debug.Log (Rifle);
 		//See if the player has a gun at all and if they press the LMB
 		if (HaveGun && Input.GetKeyDown (KeyCode.Mouse0)) {

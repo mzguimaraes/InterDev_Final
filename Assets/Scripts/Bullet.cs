@@ -5,8 +5,14 @@ using UnityEngine;
 [RequireComponent (typeof(Collider))]
 public class Bullet : MonoBehaviour {
 
+	public float despawnTimer = 10f;
+	private float despawnCountdown;
 	public float speed = 15f;
 	static public int damage = 1;
+
+	void Start () {
+		despawnCountdown = despawnTimer;
+	}
 
 	void OnTriggerEnter(Collider col) {
 		HealthSystem health = col.gameObject.GetComponent<HealthSystem>();
@@ -24,5 +30,11 @@ public class Bullet : MonoBehaviour {
 
 	void Update () {
 		transform.position += transform.forward.normalized * speed * Time.deltaTime;
+
+		//tick down despawnTimer
+		despawnCountdown -= Time.deltaTime;
+		if (despawnCountdown <= 0f) {
+			DestroyImmediate(gameObject);
+		}
 	}
 }

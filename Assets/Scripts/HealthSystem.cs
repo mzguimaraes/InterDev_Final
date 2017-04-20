@@ -12,7 +12,8 @@ public class HealthSystem : MonoBehaviour {
 	};
 
 	public int maxHealth = 3;
-	public int currHealth;
+
+	[HideInInspector] public int currHealth;
 
     private HealthStatus status = HealthStatus.Healthy;
 	public HealthStatus Status {
