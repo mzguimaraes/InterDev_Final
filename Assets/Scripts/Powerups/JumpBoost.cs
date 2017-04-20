@@ -26,7 +26,7 @@ public class JumpBoost : MonoBehaviour {
 
     IEnumerator JumpEffect()
     {
-        ourPlayerController.jumpMagnitude = 12f;
+        ourPlayerController.jumpMagnitude = 10f;
         yield return new WaitForSeconds(15);
 
         JumpReset();
