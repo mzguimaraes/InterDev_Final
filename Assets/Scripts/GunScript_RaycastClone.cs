@@ -26,7 +26,7 @@ public class GunScript_RaycastClone : MonoBehaviour {
 		//See if the player has a gun at all and if they press the LMB
 		if (HaveGun && Input.GetKeyDown (KeyCode.Mouse0)) {
 			//if they have a pistol, shoot a pistol bullet, same goes for the revolver and rifle variables
-			firingTrigger.Shoot(damageAmount);
+			firingTrigger.Fire(damageAmount);
 		}
 	}
 		
