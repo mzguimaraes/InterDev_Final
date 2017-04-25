@@ -49,6 +49,16 @@ ModelImporter:
     100082: transform4
     100084: transform5
     100086: transform6
+    100088: pasted__pSphere1 1
+    100090: transform10
+    100092: transform11
+    100094: transform12
+    100096: transform13
+    100098: transform14
+    100100: transform15
+    100102: transform7
+    100104: transform8
+    100106: transform9
     400000: group
     400002: group1
     400004: group2
@@ -93,6 +103,16 @@ ModelImporter:
     400082: transform4
     400084: transform5
     400086: transform6
+    400088: pasted__pSphere1 1
+    400090: transform10
+    400092: transform11
+    400094: transform12
+    400096: transform13
+    400098: transform14
+    400100: transform15
+    400102: transform7
+    400104: transform8
+    400106: transform9
     2300000: group_pasted__pCube2
     2300002: pasted__pasted__pasted__pPipe1
     2300004: pasted__pasted__pasted__pSphere1

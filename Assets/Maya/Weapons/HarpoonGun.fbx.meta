@@ -64,6 +64,10 @@ ModelImporter:
     100112: transform7
     100114: transform8
     100116: transform9
+    100118: pPipe2
+    100120: transform17
+    100122: transform18
+    100124: transform19
     400000: group
     400002: group1
     400004: group10
@@ -123,15 +127,22 @@ ModelImporter:
     400112: transform7
     400114: transform8
     400116: transform9
+    400118: pPipe2
+    400120: transform17
+    400122: transform18
+    400124: transform19
     2300000: group_pasted__pCube2
     2300002: pCylinder2
     2300004: pPipe1
+    2300006: pPipe2
     3300000: group_pasted__pCube2
     3300002: pCylinder2
     3300004: pPipe1
+    3300006: pPipe2
     4300000: group_pasted__pCube2
     4300002: pPipe1
     4300004: pCylinder2
+    4300006: pPipe2
     9500000: //RootNode
   materials:
     importMaterials: 1
