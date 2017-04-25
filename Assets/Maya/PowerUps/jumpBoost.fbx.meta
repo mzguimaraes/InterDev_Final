@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: b0cf105962b323647bfc02fc3ba4a33f
-timeCreated: 1492720064
+guid: c295e81a8470cce46b63de9eb710cb61
+timeCreated: 1493146667
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: polySurface1
+    4300000: polySurface3
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -35,7 +35,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 30
+    globalScale: 50
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
