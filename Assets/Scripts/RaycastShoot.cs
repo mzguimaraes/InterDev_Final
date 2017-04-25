@@ -17,7 +17,7 @@ public class RaycastShoot : MonoBehaviour {
 		//(the center of the crosshair)
 		//and deals damage to obj hit if damageable
 
-		//TODO: make this actually work
+		//TODO: make this part actually work
 		StopCoroutine(crosshair.FireFeedback());
 		crosshair.ResetPosition();
 		StartCoroutine(crosshair.FireFeedback());
@@ -29,10 +29,14 @@ public class RaycastShoot : MonoBehaviour {
 		Physics.Raycast(bulletPath, out rch, 1000f, bitmask);
 		raycastDistance += rch.distance;
 		//TODO: prevent this from throwing an error when returning null
-		HealthSystem healthObj = rch.collider.gameObject.GetComponent<HealthSystem>();
-		if (healthObj != null) {
-			healthObj.TakeDamage(damageAmount);
-		}
+
+		try {
+			HealthSystem healthObj = rch.collider.gameObject.GetComponent<HealthSystem>();
+			if (healthObj != null) {
+				healthObj.TakeDamage(damageAmount);
+			}
+		} catch (System.Exception ex) {}
+
 	}
 
 	void Start () {
