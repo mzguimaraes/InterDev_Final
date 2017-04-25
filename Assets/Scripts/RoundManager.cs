@@ -74,6 +74,11 @@ public class RoundManager : MonoBehaviour {
 //		Debug.Log("Starting round " + roundNum);
 
 		loadEnemyPrefabsIntoSpawners();
+
+		//delete disabled enemies from last round
+		foreach (HealthSystem enemy in enemies) {
+			DestroyImmediate(enemy.gameObject);
+		}
 		enemies.Clear();
 
 		int numEnemiesInRound;
