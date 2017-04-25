@@ -52,6 +52,21 @@ ModelImporter:
     100088: transform5
     100090: transform6
     100092: transform7
+    100094: pCube3
+    100096: transform10
+    100098: transform11
+    100100: transform12
+    100102: transform13
+    100104: transform14
+    100106: transform15
+    100108: transform16
+    100110: transform17
+    100112: transform18
+    100114: transform19
+    100116: transform20
+    100118: transform21
+    100120: transform8
+    100122: transform9
     400000: group
     400002: group1
     400004: group10
@@ -99,6 +114,21 @@ ModelImporter:
     400088: transform5
     400090: transform6
     400092: transform7
+    400094: pCube3
+    400096: transform10
+    400098: transform11
+    400100: transform12
+    400102: transform13
+    400104: transform14
+    400106: transform15
+    400108: transform16
+    400110: transform17
+    400112: transform18
+    400114: transform19
+    400116: transform20
+    400118: transform21
+    400120: transform8
+    400122: transform9
     2300000: pasted__pasted__pasted__pCube2
     2300002: pasted__pasted__pCube1
     2300004: pasted__pasted__pCube2
@@ -113,6 +143,7 @@ ModelImporter:
     2300022: pCube2
     2300024: pCylinder2
     2300026: pCylinder4
+    2300028: pCube3
     3300000: pasted__pasted__pasted__pCube2
     3300002: pasted__pasted__pCube1
     3300004: pasted__pasted__pCube2
@@ -127,6 +158,7 @@ ModelImporter:
     3300022: pCube2
     3300024: pCylinder2
     3300026: pCylinder4
+    3300028: pCube3
     4300000: pasted__pasted__pCube1
     4300002: pCube1
     4300004: pasted__pCube1
@@ -141,6 +173,7 @@ ModelImporter:
     4300022: pCylinder4
     4300024: pasted__pCylinder4
     4300026: pasted__pasted__pCylinder4
+    4300028: pCube3
     9500000: //RootNode
   materials:
     importMaterials: 1
