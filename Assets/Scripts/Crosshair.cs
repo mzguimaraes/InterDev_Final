@@ -70,5 +70,4 @@ public class Crosshair : MonoBehaviour {
 			yield return null;
 		}
 	}
-
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HealthSystem : MonoBehaviour {
 	//base class for player and enemy health components
+	//TODO:maybe create a CheckState() function to enforce proper state
 
 	public enum HealthStatus {
 		Healthy,
@@ -41,6 +42,17 @@ public class HealthSystem : MonoBehaviour {
 		if (currHealth <= 0) {
 			status = HealthStatus.Dead;
 		}
+		else if (currHealth <= Mathf.CeilToInt(maxHealth / 2f) ) {
+			status = HealthStatus.Wounded;
+		}
+		else if (currHealth == maxHealth) {
+			status = HealthStatus.Healthy;
+		}
+		else {
+			//enemy has healed above max health
+			currHealth = maxHealth;
+			status = HealthStatus.Healthy;
+		}
 	}
 
 	void EnemyDie() {
@@ -48,6 +60,8 @@ public class HealthSystem : MonoBehaviour {
         //spawn pickups by calling enemy death script
         EnemyDeath death = gameObject.GetComponent<EnemyDeath>();
         death.SpawnPickup();
+
+		GetComponent<BaseEnemy>().Die();
 
         gameObject.SetActive(false); //so that RoundManager can still check to see that it's dead
 	}

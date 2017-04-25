@@ -28,15 +28,14 @@ public class RaycastShoot : MonoBehaviour {
 		int bitmask = 1<<8; //bitshifting weird CS-y stuff–if you have questions about how this part works ask me -marcus
 		Physics.Raycast(bulletPath, out rch, 1000f, bitmask);
 		raycastDistance += rch.distance;
-		//TODO: prevent this from throwing an error when returning null
 
 		try {
 			HealthSystem healthObj = rch.collider.gameObject.GetComponent<HealthSystem>();
 			if (healthObj != null) {
 				healthObj.TakeDamage(damageAmount);
 			}
-		} catch (System.Exception ex) {}
-
+		}
+		catch (System.Exception) {}
 	}
 
 	void Start () {
