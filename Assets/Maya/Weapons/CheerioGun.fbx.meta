@@ -28,6 +28,14 @@ ModelImporter:
     100040: pasted__pTorus1
     100042: pCube1
     100044: pTorus1
+    100046: pasted__pasted__pTorus1 1
+    100048: transform1
+    100050: transform2
+    100052: transform3
+    100054: transform4
+    100056: transform5
+    100058: transform6
+    100060: transform7
     400000: //RootNode
     400002: group
     400004: group1
@@ -51,6 +59,14 @@ ModelImporter:
     400040: pasted__pTorus1
     400042: pCube1
     400044: pTorus1
+    400046: pasted__pasted__pTorus1 1
+    400048: transform1
+    400050: transform2
+    400052: transform3
+    400054: transform4
+    400056: transform5
+    400058: transform6
+    400060: transform7
     2300000: pasted__pasted__pasted__pasted__pasted__pTorus1
     2300002: pasted__pasted__pasted__pasted__pTorus1
     2300004: pasted__pasted__pasted__pTorus1

@@ -522,6 +522,55 @@ ModelImporter:
     101028: transform5
     101030: transform6
     101032: transform7
+    101034: group_pasted__pCube3
+    101036: transform10
+    101038: transform11
+    101040: transform12
+    101042: transform13
+    101044: transform14
+    101046: transform15
+    101048: transform16
+    101050: transform17
+    101052: transform18
+    101054: transform19
+    101056: transform20
+    101058: transform21
+    101060: transform22
+    101062: transform23
+    101064: transform24
+    101066: transform25
+    101068: transform26
+    101070: transform27
+    101072: transform28
+    101074: transform29
+    101076: transform30
+    101078: transform31
+    101080: transform32
+    101082: transform33
+    101084: transform34
+    101086: transform35
+    101088: transform36
+    101090: transform37
+    101092: transform38
+    101094: transform39
+    101096: transform40
+    101098: transform41
+    101100: transform42
+    101102: transform43
+    101104: transform44
+    101106: transform45
+    101108: transform46
+    101110: transform47
+    101112: transform48
+    101114: transform49
+    101116: transform50
+    101118: transform51
+    101120: transform52
+    101122: transform53
+    101124: transform54
+    101126: transform55
+    101128: transform8
+    101130: transform9
     400000: group
     400002: group1
     400004: group10
@@ -1039,6 +1088,55 @@ ModelImporter:
     401028: transform5
     401030: transform6
     401032: transform7
+    401034: group_pasted__pCube3
+    401036: transform10
+    401038: transform11
+    401040: transform12
+    401042: transform13
+    401044: transform14
+    401046: transform15
+    401048: transform16
+    401050: transform17
+    401052: transform18
+    401054: transform19
+    401056: transform20
+    401058: transform21
+    401060: transform22
+    401062: transform23
+    401064: transform24
+    401066: transform25
+    401068: transform26
+    401070: transform27
+    401072: transform28
+    401074: transform29
+    401076: transform30
+    401078: transform31
+    401080: transform32
+    401082: transform33
+    401084: transform34
+    401086: transform35
+    401088: transform36
+    401090: transform37
+    401092: transform38
+    401094: transform39
+    401096: transform40
+    401098: transform41
+    401100: transform42
+    401102: transform43
+    401104: transform44
+    401106: transform45
+    401108: transform46
+    401110: transform47
+    401112: transform48
+    401114: transform49
+    401116: transform50
+    401118: transform51
+    401120: transform52
+    401122: transform53
+    401124: transform54
+    401126: transform55
+    401128: transform8
+    401130: transform9
     2300000: group_pasted__pCube2
     2300002: pasted__pasted__pasted__pasted__pasted__pCone3
     2300004: pasted__pasted__pasted__pasted__pasted__pCone3 1
@@ -1087,6 +1185,7 @@ ModelImporter:
     2300090: pCylinder1
     2300092: pCylinder2
     2300094: pCylinder3
+    2300096: group_pasted__pCube3
     3300000: group_pasted__pCube2
     3300002: pasted__pasted__pasted__pasted__pasted__pCone3
     3300004: pasted__pasted__pasted__pasted__pasted__pCone3 1
@@ -1135,6 +1234,7 @@ ModelImporter:
     3300090: pCylinder1
     3300092: pCylinder2
     3300094: pCylinder3
+    3300096: group_pasted__pCube3
     4300000: group_pasted__pCube2
     4300002: pCube5
     4300004: pCylinder1
@@ -1183,6 +1283,7 @@ ModelImporter:
     4300090: pasted__pasted__pasted__pasted__pCone3
     4300092: pasted__pasted__pasted__pasted__pasted__pCone3
     4300094: pasted__pasted__pasted__pasted__pasted__pCone3
+    4300096: group_pasted__pCube3
     9500000: //RootNode
   materials:
     importMaterials: 1
