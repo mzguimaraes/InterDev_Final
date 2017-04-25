@@ -9,42 +9,44 @@ public class OurPlayerController : MonoBehaviour {
 
     public float maxSpeed = 5f;
 
-    public float forceVariable = 50f;
+    public float acceleration = 50f;
 
 	public float jumpMagnitude = 5f;
 
-    // Raycasting
+    // for jumping
     bool isGrounded;
+	bool jumpQueued = false;
 
     void Start () {
         rbody = GetComponent<Rigidbody>(); // Cache rigidbody
     }
 	
 	void Update () {
+		
+
         float horizontal = Input.GetAxis("Horizontal"); // A/D
         float vertical = Input.GetAxis("Vertical"); // W/S
 
         inputVector = new Vector3(horizontal, 0, vertical);
 
-        // Turning
-        //transform.Rotate(0f, Input.GetAxis("Mouse X") * Time.deltaTime * 300f, 0);
-
         // Jumping
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
-            inputVector.y = jumpMagnitude;
+			jumpQueued = true;
         }
     }
 
     void FixedUpdate()
-    {
-        rbody.AddRelativeForce(Vector3.up * inputVector.y * 10f);
+	{
+		isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f);
 
-        if (rbody.velocity.magnitude < maxSpeed)
-        {
-            rbody.AddRelativeForce(inputVector * forceVariable);
-        }
+		if (jumpQueued) {
+			rbody.AddRelativeForce(0f, jumpMagnitude * acceleration, 0f);
+			jumpQueued = false;
+		}
 
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f);
+		if (rbody.velocity.magnitude <= maxSpeed) {
+			rbody.AddRelativeForce(inputVector * acceleration);
+		}
     }
 }

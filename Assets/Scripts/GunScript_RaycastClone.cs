@@ -2,38 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunScript : MonoBehaviour {
+[RequireComponent(typeof(RaycastShoot))]
+public class GunScript_RaycastClone : MonoBehaviour {
+	//took Nick's GunScript and hooked it into my raycast shooting implementation -marcus
+
 	bool HaveGun = true;
 	bool Pistol = true;
 	bool Revolver = false;
 	bool Rifle = false;
 	public GameObject PistolGun;
-	public GameObject SmallBulletPreFab;
-	public GameObject LargeBulletPreFab;
+
+	public int damageAmount = 1;
+
+	private RaycastShoot firingTrigger;
+
 	// Use this for initialization
 	void Start () {
-//		BulletSpawnPosition = new Vector3(
+		firingTrigger = GetComponent<RaycastShoot>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//rotate
-
-		//Debug.Log (Rifle);
 		//See if the player has a gun at all and if they press the LMB
 		if (HaveGun && Input.GetKeyDown (KeyCode.Mouse0)) {
 			//if they have a pistol, shoot a pistol bullet, same goes for the revolver and rifle variables
-			if (Pistol == true) {
-				GameObject SmallBullet = (GameObject)Instantiate (SmallBulletPreFab, transform.Find(transform.GetChild(0).name+"/BarrelEnd").position , transform.rotation);
-			}
-			if (Revolver == true) {
-				GameObject LargeBullet = (GameObject)Instantiate (LargeBulletPreFab, transform.Find(transform.GetChild(0).name+"/BarrelEnd").position , transform.rotation);
-			}
-			if (Rifle == true) {
-				GameObject LargeBullet = (GameObject)Instantiate (LargeBulletPreFab, transform.Find(transform.GetChild(0).name+"/BarrelEnd").position , transform.rotation);
-			}
+			firingTrigger.Fire(damageAmount);
 		}
 	}
+		
 	void OnTriggerEnter(Collider other){
 		//if the player comes across a gun with the tag "gun" they will pick it up, have it parented to the players "CurrentGun" child and set it to the transform
 		if (other.gameObject.tag == "Gun") {
