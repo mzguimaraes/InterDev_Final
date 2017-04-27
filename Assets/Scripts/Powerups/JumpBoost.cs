@@ -20,7 +20,7 @@ public class JumpBoost : MonoBehaviour {
 
             StartCoroutine("JumpEffect");
             gameObject.GetComponent<MeshRenderer>().enabled = false;
-            gameObject.GetComponent<SphereCollider>().enabled = false;
+            gameObject.GetComponent<MeshCollider>().enabled = false;
         }
     }
 
