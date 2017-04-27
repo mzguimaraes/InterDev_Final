@@ -49,6 +49,25 @@ ModelImporter:
     100082: pCylinder2
     100084: pPipe1
     100086: pPipe2
+    100088: pasted__group5_pasted__pasted__pPipe1
+    100090: transform1
+    100092: transform10
+    100094: transform11
+    100096: transform12
+    100098: transform13
+    100100: transform14
+    100102: transform15
+    100104: transform16
+    100106: transform17
+    100108: transform18
+    100110: transform2
+    100112: transform3
+    100114: transform4
+    100116: transform5
+    100118: transform6
+    100120: transform7
+    100122: transform8
+    100124: transform9
     400000: group
     400002: group1
     400004: group10
@@ -93,6 +112,25 @@ ModelImporter:
     400082: pCylinder2
     400084: pPipe1
     400086: pPipe2
+    400088: pasted__group5_pasted__pasted__pPipe1
+    400090: transform1
+    400092: transform10
+    400094: transform11
+    400096: transform12
+    400098: transform13
+    400100: transform14
+    400102: transform15
+    400104: transform16
+    400106: transform17
+    400108: transform18
+    400110: transform2
+    400112: transform3
+    400114: transform4
+    400116: transform5
+    400118: transform6
+    400120: transform7
+    400122: transform8
+    400124: transform9
     2300000: pasted__pasted__group_pasted__pCube2
     2300002: pasted__pasted__pCube3 1
     2300004: pasted__pasted__pPipe1
@@ -111,6 +149,7 @@ ModelImporter:
     2300030: pCylinder2
     2300032: pPipe1
     2300034: pPipe2
+    2300036: pasted__group5_pasted__pasted__pPipe1
     3300000: pasted__pasted__group_pasted__pCube2
     3300002: pasted__pasted__pCube3 1
     3300004: pasted__pasted__pPipe1
@@ -129,6 +168,7 @@ ModelImporter:
     3300030: pCylinder2
     3300032: pPipe1
     3300034: pPipe2
+    3300036: pasted__group5_pasted__pasted__pPipe1
     4300000: pasted__pasted__group_pasted__pCube2
     4300002: pCube1
     4300004: pCylinder1
@@ -147,6 +187,7 @@ ModelImporter:
     4300030: pasted__pPipe2
     4300032: pasted__pCube3
     4300034: pasted__pasted__pCube3
+    4300036: pasted__group5_pasted__pasted__pPipe1
     9500000: //RootNode
   materials:
     importMaterials: 1
