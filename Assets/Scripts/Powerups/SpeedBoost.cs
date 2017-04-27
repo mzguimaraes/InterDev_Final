@@ -11,6 +11,7 @@ public class SpeedBoost : MonoBehaviour
     void Start()
     {
         ourPlayerController = GameObject.FindGameObjectWithTag("Player").GetComponent<OurPlayerController>();
+        this.transform.localRotation = Quaternion.identity;
     }
 
     void OnCollisionEnter(Collision coll)
@@ -22,7 +23,7 @@ public class SpeedBoost : MonoBehaviour
 
             StartCoroutine("SpeedEffect");
             gameObject.GetComponent<MeshRenderer>().enabled = false;
-            gameObject.GetComponent<SphereCollider>().enabled = false;
+            gameObject.GetComponent<MeshCollider>().enabled = false;
         }
     }
 
@@ -43,6 +44,5 @@ public class SpeedBoost : MonoBehaviour
         PowerUpManager._speedTimer = Time.timeSinceLevelLoad + (10f + PowerUpManager.speedCounter);
 
         Destroy(gameObject);
-
     }
 }
