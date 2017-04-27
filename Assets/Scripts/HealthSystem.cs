@@ -29,6 +29,7 @@ public class HealthSystem : MonoBehaviour {
 	}
 
 	public void TakeDamage(int amount) {
+		
 		Debug.Log(gameObject.name + " took damage");
 		currHealth -= amount;
 	}
