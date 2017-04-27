@@ -11,7 +11,6 @@ public class FullscreenMode : MonoBehaviour {
 	private OurPlayerController playerController;
 	private GunScript gunController;
 
-
 	private bool isFullscreen;
 	public bool IsFullscreen {
 		get {
