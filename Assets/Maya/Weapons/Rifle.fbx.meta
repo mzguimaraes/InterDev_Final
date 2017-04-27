@@ -29,6 +29,7 @@ ModelImporter:
     100042: transform3
     100044: transform4
     100046: transform5
+    100048: joint1
     400000: group
     400002: group1
     400004: pasted__group
@@ -53,6 +54,7 @@ ModelImporter:
     400042: transform3
     400044: transform4
     400046: transform5
+    400048: joint1
     2300000: pasted__group_pasted__pCube2
     2300002: pasted__pCube1
     2300004: pCube1
@@ -71,7 +73,9 @@ ModelImporter:
     4300006: pCube2
     4300008: pCylinder1
     4300010: pCube3
+    7400000: Take 001
     9500000: //RootNode
+    13700000: pCube3
   materials:
     importMaterials: 1
     materialName: 0

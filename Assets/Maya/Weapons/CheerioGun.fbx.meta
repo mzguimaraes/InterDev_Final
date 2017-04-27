@@ -36,6 +36,12 @@ ModelImporter:
     100056: transform5
     100058: transform6
     100060: transform7
+    100062: joint1
+    100064: joint2
+    100066: joint3
+    100068: joint4
+    100070: joint5
+    100072: joint6
     400000: //RootNode
     400002: group
     400004: group1
@@ -67,6 +73,12 @@ ModelImporter:
     400056: transform5
     400058: transform6
     400060: transform7
+    400062: joint1
+    400064: joint2
+    400066: joint3
+    400068: joint4
+    400070: joint5
+    400072: joint6
     2300000: pasted__pasted__pasted__pasted__pasted__pTorus1
     2300002: pasted__pasted__pasted__pasted__pTorus1
     2300004: pasted__pasted__pasted__pTorus1
@@ -88,7 +100,10 @@ ModelImporter:
     4300008: pasted__pasted__pasted__pTorus1
     4300010: pasted__pasted__pasted__pasted__pTorus1
     4300012: pasted__pasted__pasted__pasted__pasted__pTorus1
+    7400000: CheerioRecoil
+    7400002: CheerioIdle
     9500000: //RootNode
+    13700000: pasted__pasted__pTorus1
   materials:
     importMaterials: 1
     materialName: 0
@@ -109,7 +124,95 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: CheerioRecoil
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 5
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: joint1
+        weight: 1
+      - path: joint1/joint2
+        weight: 1
+      - path: joint1/joint2/joint3
+        weight: 1
+      - path: joint1/joint2/joint3/joint4
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5/joint6
+        weight: 1
+      - path: pasted__pasted__pTorus1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CheerioIdle
+      takeName: Take 001
+      firstFrame: 8.2
+      lastFrame: 11.5
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: joint1
+        weight: 1
+      - path: joint1/joint2
+        weight: 1
+      - path: joint1/joint2/joint3
+        weight: 1
+      - path: joint1/joint2/joint3/joint4
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5/joint6
+        weight: 1
+      - path: pasted__pasted__pTorus1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

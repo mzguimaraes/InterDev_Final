@@ -19,6 +19,9 @@ ModelImporter:
     100022: transform2
     100024: transform3
     100026: transform4
+    100028: joint1
+    100030: joint2
+    100032: joint3
     400000: group
     400002: group1
     400004: group_pasted__pCube2
@@ -33,6 +36,9 @@ ModelImporter:
     400022: transform2
     400024: transform3
     400026: transform4
+    400028: joint1
+    400030: joint2
+    400032: joint3
     2300000: group_pasted__pCube2
     2300002: pCube1
     2300004: pCube4
@@ -42,7 +48,12 @@ ModelImporter:
     4300000: pCube1
     4300002: pCube4
     4300004: group_pasted__pCube2
+    7400000: PistolRecoil
+    7400002: PistolIdle
     9500000: //RootNode
+    13700000: group_pasted__pCube2
+    13700002: pCube1
+    13700004: pCube4
   materials:
     importMaterials: 1
     materialName: 0
@@ -63,7 +74,91 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: PistolRecoil
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 6.1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group_pasted__pCube2
+        weight: 1
+      - path: joint1
+        weight: 1
+      - path: joint1/joint2
+        weight: 1
+      - path: joint1/joint3
+        weight: 1
+      - path: pCube1
+        weight: 1
+      - path: pCube4
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: PistolIdle
+      takeName: Take 001
+      firstFrame: 10.3
+      lastFrame: 11.2
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group_pasted__pCube2
+        weight: 1
+      - path: joint1
+        weight: 1
+      - path: joint1/joint2
+        weight: 1
+      - path: joint1/joint3
+        weight: 1
+      - path: pCube1
+        weight: 1
+      - path: pCube4
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []
