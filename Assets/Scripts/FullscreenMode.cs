@@ -11,12 +11,6 @@ public class FullscreenMode : MonoBehaviour {
 	private OurPlayerController playerController;
 	private GunScript gunController;
 
-
-	private MouseLook playerMouseLook;
-	private OurPlayerController playerController;
-	private GunScript gunController;
-
-
 	private bool isFullscreen;
 	public bool IsFullscreen {
 		get {
@@ -73,22 +67,3 @@ public class FullscreenMode : MonoBehaviour {
         }
 	}
 }
-
-    public Camera mainCamera;
-
-	private MouseLook playerMouseLook;
-	private OurPlayerController playerController;
-	private GunScript_RaycastClone gunController;
-
-    {
-        //the starting viewport values of the main cam
-        startRect = mainCamera.rect;
-
-		GameObject player = GameObject.FindGameObjectWithTag("Player");
-		playerMouseLook = player.GetComponentInChildren<MouseLook>();
-		playerController = player.GetComponent<OurPlayerController>();
-		gunController = player.GetComponentInChildren<GunScript_RaycastClone>();
-	}
-
-	
-	void Update () {
