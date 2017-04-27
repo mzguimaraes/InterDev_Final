@@ -13,7 +13,7 @@ public class FreezeTime : MonoBehaviour {
 
             StartCoroutine("FreezeEffect");
             gameObject.GetComponent<MeshRenderer>().enabled = false;
-            gameObject.GetComponent<SphereCollider>().enabled = false;
+            gameObject.GetComponent<MeshCollider>().enabled = false;
         }
     }
 
