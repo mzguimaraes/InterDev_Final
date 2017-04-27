@@ -29,7 +29,7 @@ public class HealthSystem : MonoBehaviour {
 	}
 
 	public void TakeDamage(int amount) {
-//		Debug.Log(gameObject.name + " took damage");
+		Debug.Log(gameObject.name + " took damage");
 		currHealth -= amount;
 	}
 
@@ -45,12 +45,7 @@ public class HealthSystem : MonoBehaviour {
 		else if (currHealth <= Mathf.CeilToInt(maxHealth / 2f) ) {
 			status = HealthStatus.Wounded;
 		}
-		else if (currHealth == maxHealth) {
-			status = HealthStatus.Healthy;
-		}
 		else {
-			//enemy has healed above max health
-			currHealth = maxHealth;
 			status = HealthStatus.Healthy;
 		}
 	}

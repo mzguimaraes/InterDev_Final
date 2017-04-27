@@ -8,9 +8,11 @@ public class RaycastShoot : MonoBehaviour {
 	//TODO: if team likes this, refactor for heavy use
 
 	public Crosshair crosshairPrefab;
+	public Bullet bulletPrefab;
 	private Crosshair crosshair;
 
 	private Canvas UICanvas;
+	private Coroutine crosshairFeedback;
 
 	public void Fire (int damageAmount) {
 		//shoots a raycast from Viewport point (.5, .5, 0)--the center of the screen
@@ -18,24 +20,28 @@ public class RaycastShoot : MonoBehaviour {
 		//and deals damage to obj hit if damageable
 
 		//TODO: make this part actually work
-		StopCoroutine(crosshair.FireFeedback());
+		if (crosshairFeedback != null)
+			StopCoroutine(crosshairFeedback);
 		crosshair.ResetPosition();
-		StartCoroutine(crosshair.FireFeedback());
+		crosshairFeedback = StartCoroutine(crosshair.FireFeedback());
 
 		Ray bulletPath = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
-		float raycastDistance = 0f;
 		RaycastHit rch;
+		//mask away non-enemy layers
 		int bitmask = 1<<8; //bitshifting weird CS-y stuff–if you have questions about how this part works ask me -marcus
 		Physics.Raycast(bulletPath, out rch, 1000f, bitmask);
-		raycastDistance += rch.distance;
 
-		try {
-			HealthSystem healthObj = rch.collider.gameObject.GetComponent<HealthSystem>();
-			if (healthObj != null) {
-				healthObj.TakeDamage(damageAmount);
-			}
-		}
-		catch (System.Exception) {}
+		//shoot a bullet at the target
+		Bullet bullet = Instantiate(bulletPrefab, transform.Find(transform.GetChild(0).name+"/BarrelEnd").position, transform.rotation);
+//		bullet.transform.LookAt(rch.point);
+
+//		try {
+//			HealthSystem healthObj = rch.collider.gameObject.GetComponent<HealthSystem>();
+//			if (healthObj != null) {
+//				healthObj.TakeDamage(damageAmount);
+//			}
+//		}
+//		catch (System.Exception) {}
 	}
 
 	void Start () {

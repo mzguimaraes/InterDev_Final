@@ -8,6 +8,7 @@ public class Crosshair : MonoBehaviour {
 
 	//will be drawn 4 times to create crosshair
 	public RawImage CrosshairSegment;
+	public RawImage CrosshairCenterImage;
 	//distance from CrosshairCenter each segment will be drawn at
 	public float CrosshairDelta = 13f;
 	public Vector2 CrosshairCenter = Vector2.zero;
@@ -18,6 +19,7 @@ public class Crosshair : MonoBehaviour {
 	private RawImage CrosshairLeft;
 	private RawImage CrosshairDown;
 	private RawImage CrosshairRight;
+	private RawImage CrosshairMid;
 	
 	void Start () {
 		//create crosshair
@@ -34,6 +36,9 @@ public class Crosshair : MonoBehaviour {
 		CrosshairRight = Instantiate(CrosshairSegment, transform, false);
 		CrosshairRight.rectTransform.anchoredPosition = new Vector2(-CrosshairDelta, 0f);
 		CrosshairRight.rectTransform.Rotate(0f, 0f, -90f);
+
+		CrosshairMid = Instantiate(CrosshairCenterImage, transform, true);
+		CrosshairMid.rectTransform.anchoredPosition = Vector2.zero;
 	}
 
 	public void ResetPosition () {

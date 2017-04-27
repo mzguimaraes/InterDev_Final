@@ -9,7 +9,7 @@ public class FullscreenMode : MonoBehaviour {
 
 	private MouseLook playerMouseLook;
 	private OurPlayerController playerController;
-	private GunScript gunController;
+	private GunScript_RaycastClone gunController;
 
 
 	private bool isFullscreen;
@@ -32,7 +32,7 @@ public class FullscreenMode : MonoBehaviour {
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
 		playerMouseLook = player.GetComponentInChildren<MouseLook>();
 		playerController = player.GetComponent<OurPlayerController>();
-		gunController = player.GetComponentInChildren<GunScript>();
+		gunController = player.GetComponentInChildren<GunScript_RaycastClone>();
 	}
 
 	

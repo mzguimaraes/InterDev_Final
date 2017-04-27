@@ -7,7 +7,8 @@ public abstract class BaseEnemy : MonoBehaviour {
 	//Uses finite state machine model
 
 	public enum State {
-		Chasing, Attacking, Dead
+		//Charging/Stunned used by Cynthia TODO: make this less hacky
+		Chasing, Attacking, Dead, Charging, Stunned
 	} 
 
 	protected State currState = State.Chasing;
@@ -23,18 +24,37 @@ public abstract class BaseEnemy : MonoBehaviour {
 		//returns a normal vector to dest with y == 0
 		Vector3 toDest = (dest.position - transform.position).normalized;
 		toDest.y = transform.forward.y;
+		toDest.Normalize();
 		return toDest;
 	}
 
-	protected virtual void MoveToDestination(Transform dest) {
-		//assumes flat terrain
-		Vector3 toDest = FlatVecToDest(dest);
-		transform.LookAt(dest);
-		transform.position += toDest * Time.deltaTime * PowerUpManager.baseEnemySpeed * Speed;
+	protected Vector3 FlatVecToDest(Vector3 dest) {
+		Vector3 toDest = (dest - transform.position).normalized;
+		toDest.y = transform.forward.y;
+		toDest.Normalize();
+		return toDest;
 	}
 
-	protected virtual void MoveToPlayer () {
-		MoveToDestination(player);
+	protected virtual float MoveToDestination(Transform dest) {
+		//assumes flat terrain
+		//returns distance traveled
+		Vector3 toDest = FlatVecToDest(dest);
+		transform.LookAt(dest);
+		Vector3 transformDeltas = toDest * Time.deltaTime * PowerUpManager.baseEnemySpeed * Speed;
+		transform.position += transformDeltas;
+		return transformDeltas.magnitude;
+	}
+
+	protected virtual float MoveToDestination(Vector3 dest) {
+		Vector3 toDest = FlatVecToDest(dest);
+		transform.LookAt(dest);
+		Vector3 transformDeltas = toDest * Time.deltaTime * PowerUpManager.baseEnemySpeed * Speed;
+		transform.position += transformDeltas;
+		return transformDeltas.magnitude;
+	}
+
+	protected virtual float MoveToPlayer () {
+		return MoveToDestination(player);
 	}
 
 	// Use this for initialization
