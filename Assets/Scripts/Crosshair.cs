@@ -30,14 +30,14 @@ public class Crosshair : MonoBehaviour {
 		CrosshairLeft.rectTransform.anchoredPosition = new Vector2(CrosshairDelta, 0f);
 		CrosshairLeft.rectTransform.Rotate(0f, 0f, 90f);
 
-		CrosshairDown = Instantiate(CrosshairSegment, transform, true);
+		CrosshairDown = Instantiate(CrosshairSegment, transform, false);
 		CrosshairDown.rectTransform.anchoredPosition = new Vector2(0f, -CrosshairDelta);
 
 		CrosshairRight = Instantiate(CrosshairSegment, transform, false);
 		CrosshairRight.rectTransform.anchoredPosition = new Vector2(-CrosshairDelta, 0f);
 		CrosshairRight.rectTransform.Rotate(0f, 0f, -90f);
 
-		CrosshairMid = Instantiate(CrosshairCenterImage, transform, true);
+		CrosshairMid = Instantiate(CrosshairCenterImage, transform, false);
 		CrosshairMid.rectTransform.anchoredPosition = Vector2.zero;
 	}
 
