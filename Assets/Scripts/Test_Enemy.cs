@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(HealthSystem))]
 public class Test_Enemy : MonoBehaviour {
 	//Enemy created to test basic capabilities
 	//has the following behaviors:
@@ -13,7 +14,7 @@ public class Test_Enemy : MonoBehaviour {
 
 	public GameObject bulletPrefab;
 
-	public float moveSpeed = 5f;
+	// Set to add to base movement for each enenmy public float moveSpeed = 5f;
 	public float fireCooldown = 1f;
 	private float fireTimer;
 	public float strafeRange = 10f;
@@ -22,6 +23,8 @@ public class Test_Enemy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		gameObject.tag = "Enemy";
+
 		fireTimer = fireCooldown;
 		player = FindObjectOfType<OurPlayerController>().transform; //may be inefficient TODO
 	}
@@ -41,13 +44,13 @@ public class Test_Enemy : MonoBehaviour {
 		//assumes flat terrain
 		Vector3 toDest = FlatVecToDest(dest);
 		transform.LookAt(dest);
-		transform.position += toDest * Time.deltaTime * moveSpeed;
+		transform.position += toDest * Time.deltaTime * PowerUpManager.baseEnemySpeed;
 	}
 
 	void StrafeAround(Transform pivot) {
 		//moves in a CCW circle around the pivot point
 		transform.LookAt(pivot);
-		float strafeSpeed = moveSpeed * 0.75f;
+		float strafeSpeed = PowerUpManager.baseEnemySpeed * 0.75f;
 		transform.position += transform.right * Time.deltaTime * strafeSpeed;
 	}
 

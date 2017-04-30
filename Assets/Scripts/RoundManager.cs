@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(FullscreenMode))]
 public class RoundManager : MonoBehaviour {
 
 	/*
@@ -36,6 +37,8 @@ public class RoundManager : MonoBehaviour {
 
 	private List<HealthSystem> enemies = new List<HealthSystem>(); //modified on enemy spawn, cleared on new round
 
+	private FullscreenMode fullscreenController;
+
 	public void TrackEnemy(GameObject enemy) {
 		//adds an enemy to enemies list
 		enemies.Add(enemy.GetComponent<HealthSystem>());
@@ -64,11 +67,18 @@ public class RoundManager : MonoBehaviour {
 	}
 
 	void StartNewRound() {
+		fullscreenController.IsFullscreen = true;
+		
 		roundNum ++;
 		inRound = true;
 //		Debug.Log("Starting round " + roundNum);
 
 		loadEnemyPrefabsIntoSpawners();
+
+		//delete disabled enemies from last round
+		foreach (HealthSystem enemy in enemies) {
+			DestroyImmediate(enemy.gameObject);
+		}
 		enemies.Clear();
 
 		int numEnemiesInRound;
@@ -105,9 +115,23 @@ public class RoundManager : MonoBehaviour {
 		}
 	}
 
+	IEnumerator countdownToNextRound() {
+		//		Debug.Log("Cooling down after round " + roundNum);
+		fullscreenController.IsFullscreen = false;
+
+		float timer = timeBetweenRounds;
+		while (timer > 0f) {
+			timer -= Time.deltaTime;
+			yield return null;
+		}
+		StartNewRound();
+	}
+
 	void Start () {
 		//establish singleton
 		instance = this;
+
+		fullscreenController = GetComponent<FullscreenMode>();
 
 		//populate spawnClosets
 		SpawnCloset[] SCarray = FindObjectsOfType<SpawnCloset>();
@@ -115,16 +139,6 @@ public class RoundManager : MonoBehaviour {
 			spawnClosets.Add(sc);
 		}
 
-		StartNewRound();
-	}
-		
-	IEnumerator countdownToNextRound() {
-//		Debug.Log("Cooling down after round " + roundNum);
-		float timer = timeBetweenRounds;
-		while (timer > 0f) {
-			timer -= Time.deltaTime;
-			yield return null;
-		}
 		StartNewRound();
 	}
 	

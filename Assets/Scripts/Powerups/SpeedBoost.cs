@@ -11,6 +11,7 @@ public class SpeedBoost : MonoBehaviour
     void Start()
     {
         ourPlayerController = GameObject.FindGameObjectWithTag("Player").GetComponent<OurPlayerController>();
+        this.transform.localRotation = Quaternion.identity;
     }
 
     void OnCollisionEnter(Collision coll)
@@ -20,32 +21,28 @@ public class SpeedBoost : MonoBehaviour
             PowerUpManager._speedTimer = Time.timeSinceLevelLoad + ((10.0f + PowerUpManager.speedCounter));
             PowerUpManager.speedExist = false;
 
-
-            Destroy(this.gameObject);
             StartCoroutine("SpeedEffect");
             gameObject.GetComponent<MeshRenderer>().enabled = false;
-            gameObject.GetComponent<SphereCollider>().enabled = false;
+            gameObject.GetComponent<MeshCollider>().enabled = false;
         }
     }
 
     IEnumerator SpeedEffect()
     {
-        ourPlayerController.maxSpeed = 16f;
-        ourPlayerController.forceVariable = 12f;
-        yield return new WaitForSeconds(2 * Time.deltaTime);
+        ourPlayerController.maxSpeed = 12f;
+        ourPlayerController.acceleration = 60f;
+        yield return new WaitForSeconds(15);
 
         SpeedReset();
     }
 
     void SpeedReset()
     {
-        Debug.Log("RESET");
         ourPlayerController.maxSpeed = 5f;
-        ourPlayerController.forceVariable = 10f;
+        ourPlayerController.acceleration = 50f;
         PowerUpManager.speedCounter += 5;
         PowerUpManager._speedTimer = Time.timeSinceLevelLoad + (10f + PowerUpManager.speedCounter);
 
         Destroy(gameObject);
-
     }
 }
