@@ -15,7 +15,10 @@ public class RaycastShoot : MonoBehaviour {
 	private Coroutine crosshairFeedback;
 
 	public void Fire (int damageAmount) {
-		//shoots a raycast from Viewport point (.5, .5, 0)--the center of the screen
+        // Audio
+        GetComponent<AudioSource>().Play();
+        
+        //shoots a raycast from Viewport point (.5, .5, 0)--the center of the screen
 		//(the center of the crosshair)
 		//and deals damage to obj hit if damageable
 
