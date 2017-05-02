@@ -1,0 +1,211 @@
+fileFormatVersion: 2
+guid: eb1ea1e286bdcaf488c4b87cd6cec0b1
+timeCreated: 1493148252
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: core
+    100002: front_socket
+    100004: left_arm
+    100006: left_elbow
+    100008: left_finger1
+    100010: left_finger2
+    100012: left_finger3
+    100014: left_finger4
+    100016: left_thumb
+    100018: left_wrist
+    100020: polySurface2
+    100022: polySurface6
+    100024: right_arm
+    100026: right_elbow
+    100028: right_finger1
+    100030: right_finger2
+    100032: right_finger3
+    100034: right_finger4
+    100036: right_thumb
+    100038: right_wrist
+    100040: //RootNode
+    100042: tentacle_base
+    100044: tentacle_end
+    100046: tentacle_part1
+    100048: tentacle_part2
+    100050: tentacle_part3
+    400000: core
+    400002: front_socket
+    400004: left_arm
+    400006: left_elbow
+    400008: left_finger1
+    400010: left_finger2
+    400012: left_finger3
+    400014: left_finger4
+    400016: left_thumb
+    400018: left_wrist
+    400020: polySurface2
+    400022: polySurface6
+    400024: right_arm
+    400026: right_elbow
+    400028: right_finger1
+    400030: right_finger2
+    400032: right_finger3
+    400034: right_finger4
+    400036: right_thumb
+    400038: right_wrist
+    400040: //RootNode
+    400042: tentacle_base
+    400044: tentacle_end
+    400046: tentacle_part1
+    400048: tentacle_part2
+    400050: tentacle_part3
+    4300000: polySurface6
+    7400000: small_wounded
+    9500000: //RootNode
+    13700000: polySurface6
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: small_wounded
+      takeName: Take 001
+      firstFrame: 49
+      lastFrame: 72
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: core
+        weight: 1
+      - path: core/front_socket
+        weight: 1
+      - path: core/left_arm
+        weight: 1
+      - path: core/left_arm/left_elbow
+        weight: 1
+      - path: core/left_arm/left_elbow/left_wrist
+        weight: 1
+      - path: core/left_arm/left_elbow/left_wrist/left_finger1
+        weight: 1
+      - path: core/left_arm/left_elbow/left_wrist/left_finger2
+        weight: 1
+      - path: core/left_arm/left_elbow/left_wrist/left_finger3
+        weight: 1
+      - path: core/left_arm/left_elbow/left_wrist/left_finger4
+        weight: 1
+      - path: core/left_arm/left_elbow/left_wrist/left_thumb
+        weight: 1
+      - path: core/right_arm
+        weight: 1
+      - path: core/right_arm/right_elbow
+        weight: 1
+      - path: core/right_arm/right_elbow/right_wrist
+        weight: 1
+      - path: core/right_arm/right_elbow/right_wrist/right_finger1
+        weight: 1
+      - path: core/right_arm/right_elbow/right_wrist/right_finger2
+        weight: 1
+      - path: core/right_arm/right_elbow/right_wrist/right_finger3
+        weight: 1
+      - path: core/right_arm/right_elbow/right_wrist/right_finger4
+        weight: 1
+      - path: core/right_arm/right_elbow/right_wrist/right_thumb
+        weight: 1
+      - path: core/tentacle_base
+        weight: 1
+      - path: core/tentacle_base/tentacle_part1
+        weight: 1
+      - path: core/tentacle_base/tentacle_part1/tentacle_part2
+        weight: 1
+      - path: core/tentacle_base/tentacle_part1/tentacle_part2/tentacle_part3
+        weight: 1
+      - path: core/tentacle_base/tentacle_part1/tentacle_part2/tentacle_part3/tentacle_end
+        weight: 1
+      - path: polySurface2
+        weight: 1
+      - path: polySurface6
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
