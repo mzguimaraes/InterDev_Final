@@ -59,6 +59,9 @@ ModelImporter:
     100102: transform7
     100104: transform8
     100106: transform9
+    100108: joint1
+    100110: joint2
+    100112: joint3
     400000: group
     400002: group1
     400004: group2
@@ -113,6 +116,9 @@ ModelImporter:
     400102: transform7
     400104: transform8
     400106: transform9
+    400108: joint1
+    400110: joint2
+    400112: joint3
     2300000: group_pasted__pCube2
     2300002: pasted__pasted__pasted__pPipe1
     2300004: pasted__pasted__pasted__pSphere1
@@ -140,7 +146,10 @@ ModelImporter:
     4300012: pasted__pSphere1
     4300014: pasted__pasted__pSphere1
     4300016: pasted__pasted__pasted__pSphere1
+    7400000: PotatoGunRecoil
+    7400002: PotatoGunIdle
     9500000: //RootNode
+    13700000: pasted__pSphere1
   materials:
     importMaterials: 1
     materialName: 0
@@ -161,7 +170,83 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: PotatoGunRecoil
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 5
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: joint1
+        weight: 1
+      - path: joint1/joint2
+        weight: 1
+      - path: joint1/joint2/joint3
+        weight: 1
+      - path: pasted__pSphere1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: PotatoGunIdle
+      takeName: Take 001
+      firstFrame: 6.2
+      lastFrame: 10.2
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: joint1
+        weight: 1
+      - path: joint1/joint2
+        weight: 1
+      - path: joint1/joint2/joint3
+        weight: 1
+      - path: pasted__pSphere1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
