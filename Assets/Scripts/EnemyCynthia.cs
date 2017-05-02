@@ -27,8 +27,11 @@ public class EnemyCynthia : BaseEnemy {
 
 	private Vector3 chargeGoal;
 
+    public Animator cynthiaAnim;
+
 	void Start() {
 		chargeTimer = 0f;
+        cynthiaAnim.SetBool("isWalking", true);
 	}
 
 	void OnCollisionEnter(Collision col) {
@@ -78,6 +81,7 @@ public class EnemyCynthia : BaseEnemy {
 	}
 
 	protected override void HandleState (State state) {
+        Debug.Log(state);
 		switch (state) {
 		case State.Chasing:
 			HandleChasing();
@@ -192,6 +196,8 @@ public class EnemyCynthia : BaseEnemy {
 
 	protected void EnterCharging ()
 	{
+        cynthiaAnim.SetBool("isIdle", false);
+        cynthiaAnim.SetBool("isWalking", true);
 		chargeTimer = chargeCooldown;
 		chargeDistanceTraveled = 0f;
 		chargeGoal = player.position;
@@ -248,6 +254,8 @@ public class EnemyCynthia : BaseEnemy {
 
 	protected void EnterStunned ()
 	{
+        cynthiaAnim.SetBool("isWalking", false);
+        cynthiaAnim.SetBool("isIdle", true);
 		stunTimer = stunLength;
 	}
 
