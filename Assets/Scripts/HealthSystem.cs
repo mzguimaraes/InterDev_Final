@@ -35,6 +35,9 @@ public class HealthSystem : MonoBehaviour {
 //		Debug.Log(gameObject.name + " took damage");
 //		if (gameObject.tag == "Player") screenshake.ShakeScreen( (float) amount );
 		currHealth -= amount;
+		if (gameObject.tag == "Enemy") {
+			GetComponent<BaseEnemy>().TakeDamage();
+		}
 	}
 
     public void AddHealth(int amount)

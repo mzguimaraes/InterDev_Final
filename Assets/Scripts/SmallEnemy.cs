@@ -101,11 +101,6 @@ public class SmallEnemy : BaseEnemy {
 	//-------------------------------------------------------//
 	//Dead
 
-	public override void Die() {
-		EnterState(State.Dead);
-//		Debug.Log(gameObject.name + " called Die()");
-	}
-
 	protected override void EnterDead ()
 	{
 	}
@@ -114,7 +109,10 @@ public class SmallEnemy : BaseEnemy {
 	{
 	}
 
-
+	public override void TakeDamage ()
+	{
+		
+	}
 
 	#endregion
 }
