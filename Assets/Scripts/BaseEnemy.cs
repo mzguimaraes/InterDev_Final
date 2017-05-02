@@ -30,7 +30,7 @@ public abstract class BaseEnemy : MonoBehaviour {
 
 	protected Vector3 FlatVecToDest(Vector3 dest) {
 		Vector3 toDest = (dest - transform.position).normalized;
-		toDest.y = transform.forward.y;
+		toDest.y = 0;
 		toDest.Normalize();
 		return toDest;
 	}
