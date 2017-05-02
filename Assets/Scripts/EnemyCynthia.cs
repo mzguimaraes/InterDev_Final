@@ -171,17 +171,17 @@ public class EnemyCynthia : BaseEnemy {
 	//-------------------------------------------------------//
 	//Dead
 
-	public override void Die ()
-	{
-		EnterState(State.Dead);
-	}
-
 	protected override void EnterDead ()
 	{
 	}
 
 	protected override void HandleDead ()
 	{
+	}
+
+	public override void TakeDamage ()
+	{
+		
 	}
 	#endregion
 
