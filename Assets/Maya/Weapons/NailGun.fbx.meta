@@ -1315,7 +1315,7 @@ ModelImporter:
       name: NailGunRecoil
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 5
+      lastFrame: 6
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
