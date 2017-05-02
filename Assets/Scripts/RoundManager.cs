@@ -67,6 +67,12 @@ public class RoundManager : MonoBehaviour {
 	}
 
 	void StartNewRound() {
+		if (spawnClosets.Count == 0) {
+			Debug.Log("No spawn closets in scene - round not starting!");
+			gameObject.SetActive(false);
+		}
+
+
 		fullscreenController.IsFullscreen = true;
 		
 		roundNum ++;

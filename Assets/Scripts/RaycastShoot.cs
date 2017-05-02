@@ -14,6 +14,8 @@ public class RaycastShoot : MonoBehaviour {
 	private Canvas UICanvas;
 	private Coroutine crosshairFeedback;
 
+	private ScreenShake screenshake;
+
 	public void Fire (int damageAmount) {
         // Audio
         GetComponent<AudioSource>().Play();
@@ -38,6 +40,8 @@ public class RaycastShoot : MonoBehaviour {
 		Bullet bullet = Instantiate(bulletPrefab, transform.Find(transform.GetChild(0).name+"/BarrelEnd").position, transform.rotation);
 //		bullet.transform.LookAt(rch.point);
 
+		screenshake.ShakeScreen(10f);
+
 //		try {
 //			HealthSystem healthObj = rch.collider.gameObject.GetComponent<HealthSystem>();
 //			if (healthObj != null) {
@@ -51,6 +55,8 @@ public class RaycastShoot : MonoBehaviour {
 		//create crosshair and parent it to canvas
 		UICanvas = FindObjectOfType<Canvas>();
 		crosshair = Instantiate(crosshairPrefab, UICanvas.transform, false);
+
+		screenshake = FindObjectOfType<ScreenShake>();
 	}
 
 }
