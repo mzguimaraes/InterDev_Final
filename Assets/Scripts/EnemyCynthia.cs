@@ -25,6 +25,8 @@ public class EnemyCynthia : BaseEnemy {
 	public float stunLength = 3f;
 	private float stunTimer;
 
+	public float throwRadius = 7f;
+
 	private Vector3 chargeGoal;
 
     public Animator cynthiaAnim;
@@ -34,12 +36,24 @@ public class EnemyCynthia : BaseEnemy {
         cynthiaAnim.SetBool("isWalking", true);
 	}
 
+	protected override void Update() {
+		base.Update();
+		if (Vector3.Distance(transform.position, player.position) <= throwRadius) {
+			//throw player TODO: refactor
+			Vector3 impact = (player.position - transform.position).normalized;
+			impact *= chargeImpactMagnitude;
+			impact += new Vector3(0f, chargeImpactMagnitude / 2, 0f);
+			player.gameObject.GetComponent<HealthSystem>().TakeDamage(chargeDamage);
+			player.gameObject.GetComponent<Rigidbody>().AddForce(impact);
+		}
+	}
+
 	void OnCollisionEnter(Collision col) {
 		//using for melee attack / charge for now
 		// Debug.Log("Hit " + col.collider.name);
 
 		if (currState == State.Charging || currState == State.Chasing) {
-			if (col.collider.tag == "Player") {
+			if (col.collider.name == "Player" ) {
 				//do damage
 				col.collider.GetComponent<HealthSystem>().TakeDamage(chargeDamage);
 				//push backwards and up
@@ -174,8 +188,7 @@ public class EnemyCynthia : BaseEnemy {
 
 	//-------------------------------------------------------//
 	//Dead
-
-	public override void Die ()
+	public override void Die () 
 	{
 		EnterState(State.Dead);
 	}
@@ -186,6 +199,11 @@ public class EnemyCynthia : BaseEnemy {
 
 	protected override void HandleDead ()
 	{
+	}
+
+	public override void TakeDamage ()
+	{
+		
 	}
 	#endregion
 
@@ -214,35 +232,7 @@ public class EnemyCynthia : BaseEnemy {
 			//end charge
 			EnterState(State.Stunned);
 		}
-//		if (chargeDistanceTraveled >= chargeDistance) { //charge ending
-//			EnterState(State.Stunned);
-//			if (chargeState == ChargeState.Before) {
-//				StartCoroutine(ChargeStun());
-//			}
-//			if (chargeState == ChargeState.Done) {
-//				EnterState(State.Chasing);
-//			}
-//		}
-//		else { //charge
-//			chargeDistanceTraveled += MoveToDestination(chargeGoal);
-//			Debug.Log("Charge goal == " + chargeGoal.ToString());
-		//or
-//			Vector3 initPos = transform.position;
-//			MoveToDestination(chargeGoal);
-//			chargeDistanceTraveled += Vector3.Distance(transform.position, initPos);
-//		}
 	}
-
-//	IEnumerator ChargeStun () {
-//		//stun Cynthia after charging
-//		chargeState = ChargeState.During;
-//		float stunTimer = chargeResetTimer;
-//		while (stunTimer > 0f) {
-//			stunTimer -= Time.deltaTime;
-//			yield return null;
-//		}
-//		chargeState = ChargeState.Done;
-//	}
 
 	protected void ExitCharging () 
 	{
