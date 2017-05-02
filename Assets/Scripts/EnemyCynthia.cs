@@ -33,7 +33,7 @@ public class EnemyCynthia : BaseEnemy {
 
 	void OnCollisionEnter(Collision col) {
 		//using for melee attack / charge for now
-		Debug.Log("Hit " + col.collider.name);
+		// Debug.Log("Hit " + col.collider.name);
 
 		if (currState == State.Charging || currState == State.Chasing) {
 			if (col.collider.tag == "Player") {
@@ -42,7 +42,7 @@ public class EnemyCynthia : BaseEnemy {
 				//push backwards and up
 				Vector3 impactForce = transform.forward.normalized * chargeImpactMagnitude;
 				impactForce += new Vector3(0f, chargeImpactMagnitude / 2, 0f);
-				Debug.Log("Impact force == " + impactForce.ToString());
+				// Debug.Log("Impact force == " + impactForce.ToString());
 				col.collider.gameObject.GetComponent<Rigidbody>().AddForce(impactForce);
 			}
 			else if (col.collider.tag == "Arena") {
@@ -53,7 +53,7 @@ public class EnemyCynthia : BaseEnemy {
 	}
 
 	protected override void EnterState(State state) {
-		Debug.Log("Entering state: " + state);
+		// Debug.Log("Entering state: " + state);
 
 		ExitState(currState);
 		currState = state;
@@ -201,7 +201,7 @@ public class EnemyCynthia : BaseEnemy {
 	protected void HandleCharging ()
 	{
 		if (chargeDistanceTraveled < chargeDistance) {
-			Debug.Log("CHAAARGE");
+			// Debug.Log("CHAAARGE");
 			chargeDistanceTraveled += MoveToDestination(chargeGoal);
 		}
 		else {
