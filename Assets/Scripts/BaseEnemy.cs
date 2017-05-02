@@ -128,9 +128,14 @@ public abstract class BaseEnemy : MonoBehaviour {
 	protected abstract void HandleChasing();
 	protected abstract void ExitChasing();
 
-	//-------------------------------------------------------//
+    //-------------------------------------------------------//
 
-	public abstract void Die(); //for HealthSystem to call
+    public virtual void Die()
+    {
+
+
+        EnterState(State.Dead);
+    }//for HealthSystem to call
 
 	protected abstract void EnterDead();
 	protected abstract void HandleDead();
