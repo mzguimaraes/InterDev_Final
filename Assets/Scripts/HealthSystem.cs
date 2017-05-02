@@ -14,6 +14,8 @@ public class HealthSystem : MonoBehaviour {
 
 	public int maxHealth = 3;
 
+	private ScreenShake screenshake;
+
 	[HideInInspector] public int currHealth;
 
     private HealthStatus status = HealthStatus.Healthy;
@@ -26,11 +28,12 @@ public class HealthSystem : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		currHealth = maxHealth;
+		screenshake = Camera.main.GetComponent<ScreenShake>();
 	}
 
 	public void TakeDamage(int amount) {
-		
-		Debug.Log(gameObject.name + " took damage");
+//		Debug.Log(gameObject.name + " took damage");
+//		if (gameObject.tag == "Player") screenshake.ShakeScreen( (float) amount );
 		currHealth -= amount;
 	}
 

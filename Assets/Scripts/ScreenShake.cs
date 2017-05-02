@@ -8,20 +8,23 @@ public class ScreenShake : MonoBehaviour {
 
 	Vector3 startPos;
 
-	void Start () {
-		startPos = transform.position;
-	}
-
-	public IEnumerator Shake(float intensity) {
+	IEnumerator Shake(float intensity) {
+		startPos = transform.localPosition;
 		float currIntensity = intensity;
-		while (currIntensity > 0f) {
-			transform.position = Vector3.Lerp(transform.position, 
-				startPos + Random.insideUnitSphere * intensity,
+		while (currIntensity > 0.5f) {
+			transform.localPosition = Vector3.Lerp(transform.localPosition, 
+				transform.localPosition + Random.insideUnitSphere * currIntensity,
 				Time.deltaTime);
-			intensity *= .95f;
+			currIntensity *= .9f;
+			Debug.Log("shaking at intensity " + currIntensity);
 			yield return 0;
 		}
+		transform.localPosition = startPos;
 
+	}
+
+	public void ShakeScreen(float intensity) {
+		StartCoroutine(Shake(intensity));
 	}
 
 }
