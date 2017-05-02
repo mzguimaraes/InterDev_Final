@@ -18,17 +18,22 @@ public class SmallEnemy : BaseEnemy {
 	public float strafeShootRange = 10f;
 	public float rangeTolerance = 2f;
 	public float strafeSpeedScalar = 0.75f;
+    public Animator smallboyAnim;
 
 	void StrafeAround(Transform pivot) {
-		//moves in a CCW circle around the pivot point
+        //moves in a CCW circle around the pivot point
+        smallboyAnim.SetBool("isShooting", false);
+        smallboyAnim.SetBool("isMoving", true);
 		transform.LookAt(pivot);
 		float strafeSpeed = PowerUpManager.baseEnemySpeed * strafeSpeedScalar;
 		transform.position += transform.right * Time.deltaTime * strafeSpeed;
 	}
 
 	void ShootAt(Transform target) {
-		//fires one bullet toward target
-		//		Debug.Log("fire!");
+        //fires one bullet toward target
+        //		Debug.Log("fire!");
+        smallboyAnim.SetBool("isMoving", false);
+        smallboyAnim.SetBool("isShooting", true);
 		Vector3 toTarget = (target.position - transform.position).normalized;
 		Instantiate(bulletPrefab, transform.position, Quaternion.LookRotation(toTarget));
 	}
