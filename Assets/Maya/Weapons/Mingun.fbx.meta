@@ -221,7 +221,7 @@ ModelImporter:
       name: MinigunRecoil
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 20
+      lastFrame: 4
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
