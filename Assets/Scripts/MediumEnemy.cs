@@ -11,20 +11,36 @@ public class MediumEnemy : BaseEnemy {
 	 *  
 	 */
 
+	public float speed = 5f;
+	public GameObject cloudPrefab;
+
 	#region implemented abstract members of BaseEnemy
-	//Attacking: leaving cloud
+	protected override float Speed {
+		get {
+			return speed;
+		}
+		set {
+			speed = value;
+		}
+	}
+		
+	//Attacking: place cloud
 	protected override void EnterAttacking ()
 	{
-		throw new System.NotImplementedException ();
+		Instantiate(cloudPrefab, transform);
 	}
 	protected override void HandleAttacking ()
 	{
-		throw new System.NotImplementedException ();
+		//does nothing
 	}
 	protected override void ExitAttacking ()
 	{
 		//doesn't leave
 	}
+
+	//-------------------------------------------------------//
+	//Chasing: moves to location
+
 	protected override void EnterChasing ()
 	{
 		throw new System.NotImplementedException ();
@@ -37,6 +53,12 @@ public class MediumEnemy : BaseEnemy {
 	{
 		throw new System.NotImplementedException ();
 	}
+
+	public override void Die () 
+	{
+		EnterState(State.Dead);
+	}
+
 	protected override void EnterDead ()
 	{
 		throw new System.NotImplementedException ();
@@ -44,14 +66,6 @@ public class MediumEnemy : BaseEnemy {
 	protected override void HandleDead ()
 	{
 		throw new System.NotImplementedException ();
-	}
-	protected override float Speed {
-		get {
-			throw new System.NotImplementedException ();
-		}
-		set {
-			throw new System.NotImplementedException ();
-		}
 	}
 
 	public override void TakeDamage ()

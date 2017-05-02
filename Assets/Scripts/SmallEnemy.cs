@@ -100,6 +100,10 @@ public class SmallEnemy : BaseEnemy {
 
 	//-------------------------------------------------------//
 	//Dead
+	public override void Die () 
+	{
+		EnterState(State.Dead);
+	}
 
 	protected override void EnterDead ()
 	{
