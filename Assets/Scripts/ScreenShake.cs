@@ -17,7 +17,7 @@ public class ScreenShake : MonoBehaviour {
 			transform.localPosition = Vector3.Lerp(transform.localPosition, 
 				transform.localPosition + Random.insideUnitSphere * currIntensity,
 				Time.deltaTime);
-			currIntensity *= .9f;
+			currIntensity *= .5f;
 			Debug.Log("shaking at intensity " + currIntensity);
 			yield return 0;
 		}

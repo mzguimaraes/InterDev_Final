@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnCloset : MonoBehaviour {
 
 	public static List<GameObject> enemyPrefabs = new List<GameObject>();
+	public static List<int> enemyMaxCounts = new List<int>();
 
 	private int numEnemiesToSpawn = 0;
 
@@ -12,7 +13,6 @@ public class SpawnCloset : MonoBehaviour {
 	private float spawnCountdown = 0f;
 
 	public void startRound(int numEnemies, float timeBetweenSpawns) {
-//		Debug.Log(gameObject.name + " spawning " + numEnemies + " with " + timeBetweenSpawns + " secs between");
 		//starts a new round that will spawn numEnemies enemies 
 		//with a semi-random spawn interval centered at timeBetweenSpawns
 
@@ -28,6 +28,13 @@ public class SpawnCloset : MonoBehaviour {
 
 	void spawnEnemy() {
 		int rng = Random.Range(0, enemyPrefabs.Count);
+
+		while (RoundManager.instance.GetNumEnemiesOfType(enemyPrefabs[rng].GetComponent<BaseEnemy>()) >= enemyMaxCounts[rng]
+			&& enemyMaxCounts[rng] >= 0) {
+
+			rng = Random.Range(0, enemyPrefabs.Count);
+		}
+
 		GameObject newEnemy = Instantiate(enemyPrefabs[rng], transform.position, Quaternion.identity);
 		RoundManager.instance.TrackEnemy(newEnemy);
 		numEnemiesToSpawn--;

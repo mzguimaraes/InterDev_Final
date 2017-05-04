@@ -35,6 +35,7 @@ public class SmallEnemy : BaseEnemy {
 
 	void Start () {
 		fireTimer = 0f;
+		enemyType = EnemyType.Small;
 	}
 
 	#region implemented abstract members of BaseEnemy
@@ -65,6 +66,7 @@ public class SmallEnemy : BaseEnemy {
 		else { //execute state
 			fireTimer -= Time.deltaTime;
 			if (fireTimer <= 0f) {
+				//HERE
 				ShootAt(player);
 				fireTimer = fireCooldown;
 			}

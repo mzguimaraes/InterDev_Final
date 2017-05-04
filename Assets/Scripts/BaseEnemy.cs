@@ -6,6 +6,11 @@ using UnityEngine;
 public abstract class BaseEnemy : MonoBehaviour {
 	//Uses finite state machine model
 
+	public enum EnemyType {
+		Small, Medium, Large
+	}
+	public EnemyType enemyType;
+
 	public enum State {
 		//Charging/Stunned used by Cynthia TODO: make this less hacky
 		Chasing, Attacking, Dead, Charging, Stunned
@@ -29,7 +34,7 @@ public abstract class BaseEnemy : MonoBehaviour {
 	}
 
 	protected Vector3 FlatVecToDest(Vector3 dest) {
-		Vector3 toDest = (dest - transform.position).normalized;
+		Vector3 toDest = (dest - transform.position);
 		toDest.y = 0;
 		toDest.Normalize();
 		return toDest;

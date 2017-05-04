@@ -31,6 +31,7 @@ public class EnemyCynthia : BaseEnemy {
 
 	void Start() {
 		chargeTimer = 0f;
+		enemyType = EnemyType.Large;
 	}
 
 	protected override void Update() {
