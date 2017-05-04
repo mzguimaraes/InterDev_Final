@@ -78,8 +78,8 @@ ModelImporter:
     - serializedVersion: 16
       name: PistolRecoil
       takeName: Take 001
-      firstFrame: 0
-      lastFrame: 6.1
+      firstFrame: 1
+      lastFrame: 5.8
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

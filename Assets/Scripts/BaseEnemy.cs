@@ -131,9 +131,9 @@ public abstract class BaseEnemy : MonoBehaviour {
 	protected abstract void HandleChasing();
 	protected abstract void ExitChasing();
 
-	//-------------------------------------------------------//
+    //-------------------------------------------------------//
 
-	public abstract void Die(); //for HealthSystem to call
+    public abstract void Die();
 
 	protected abstract void EnterDead();
 	protected abstract void HandleDead();
