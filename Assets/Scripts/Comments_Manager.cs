@@ -5,33 +5,25 @@ using UnityEngine.UI;
 
 public class Comments_Manager : MonoBehaviour {
 
-    public static bool enemy_died;
-    bool coroutine_is_running;
+    public static bool enemy_died, comment_exist;
     Text currentComment;
-    Vector3 newPos;
     public Text commentPrefab;
+    float Timer;
     
 	void Start () {
         enemy_died = false;
-        coroutine_is_running = false;
-        newPos = new Vector3(550, 130, 0);
-	}
+        comment_exist = false;
+        Timer = 0;
+    }
 	
 	void Update () {
-        if (enemy_died)
+        if (enemy_died && Random.Range(0, 1.0f) < 0.5f && !comment_exist)
         {
-            currentComment = Instantiate(commentPrefab, transform);
-            currentComment.GetComponent<RectTransform>().position = new Vector3(548, 135, 0);
-            StartCoroutine(Comments());
+            currentComment = Instantiate(commentPrefab);
+            currentComment.transform.SetParent(transform, false);
+
+            comment_exist = true;
             enemy_died = false;
-            coroutine_is_running = true;
         }
 	}
-
-    IEnumerator Comments()
-    {
-
-        yield return 0;
-        coroutine_is_running = false;
-    }
 }
