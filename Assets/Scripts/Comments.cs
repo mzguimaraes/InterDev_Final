@@ -21,7 +21,15 @@ public class Comments : MonoBehaviour {
             "Hello, Lord of the Srubs",
             "Coming in Clutch",
             "Why am I the tank?",
-            "Get good fam"
+            "Get good fam",
+            "who dead? u dead.",
+            "GET SOME!",
+            "ur the goat!",
+            "you cant be this bad",
+            "stop winning",
+            "Winning!",
+            "hes flanking!",
+            "Get it together guys"
         };
     }
 
