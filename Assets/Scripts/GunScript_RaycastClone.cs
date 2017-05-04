@@ -11,6 +11,7 @@ public class GunScript_RaycastClone : MonoBehaviour {
 	bool Revolver = false;
 	bool Rifle = false;
 	bool Harpoon = false;
+	bool Shotgun = false;
 	public GameObject PistolGun;
 
 
@@ -34,6 +35,10 @@ public class GunScript_RaycastClone : MonoBehaviour {
 			//if they have a pistol, shoot a pistol bullet, same goes for the revolver and rifle variables
 			firingTrigger.RevolverFire(damageAmount);
 		}
+		if (HaveGun && Shotgun && Input.GetKeyDown (KeyCode.Mouse0)) {
+			//if they have a pistol, shoot a pistol bullet, same goes for the revolver and rifle variables
+			firingTrigger.ShotGunFire(damageAmount);
+		}
 
 	}
 		
@@ -56,6 +61,8 @@ public class GunScript_RaycastClone : MonoBehaviour {
 				Revolver = false;
 				Rifle = false;
 				Harpoon = false;
+				Shotgun = false;
+
 			}
 			if (other.gameObject.name == "RevolverGun") {
 //				Debug.Log ("Revolver");
@@ -63,11 +70,22 @@ public class GunScript_RaycastClone : MonoBehaviour {
 				Pistol = false;
 				Rifle = false;
 				Harpoon = false;
-
+				Shotgun = false;
 			}
 			if (other.gameObject.name == "RifleGun") {
 //				Debug.Log ("RIFLE");
 				Rifle = true;
+				Pistol = false;
+				Revolver = false;
+				Harpoon = false;
+				Shotgun = false;
+
+
+			}
+			if (other.gameObject.name == "Shotgun") {
+				//				Debug.Log ("RIFLE");
+				Shotgun = true;
+				Rifle = false;
 				Pistol = false;
 				Revolver = false;
 				Harpoon = false;
@@ -76,10 +94,10 @@ public class GunScript_RaycastClone : MonoBehaviour {
 			if (other.gameObject.name == "HarpoonGun") {
 				//				Debug.Log ("RIFLE");
 				Harpoon = true;
-				Rifle = true;
+				Rifle = false;
 				Pistol = false;
 				Revolver = false;
-				Harpoon = false;
+				Shotgun = false;
 
 			}
 		}
