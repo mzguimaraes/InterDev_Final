@@ -16,7 +16,7 @@ public class ScreenShake : MonoBehaviour {
 				transform.localPosition + Random.insideUnitSphere * currIntensity,
 				Time.deltaTime);
 			currIntensity *= .9f;
-			Debug.Log("shaking at intensity " + currIntensity);
+			// Debug.Log("shaking at intensity " + currIntensity);
 			yield return 0;
 		}
 		transform.localPosition = startPos;

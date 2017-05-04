@@ -130,12 +130,7 @@ public abstract class BaseEnemy : MonoBehaviour {
 
     //-------------------------------------------------------//
 
-    public virtual void Die()
-    {
-
-
-        EnterState(State.Dead);
-    }//for HealthSystem to call
+    public abstract void Die();
 
 	protected abstract void EnterDead();
 	protected abstract void HandleDead();
