@@ -16,9 +16,17 @@ public class RaycastShoot : MonoBehaviour {
 
 	private ScreenShake screenshake;
 
+    public GameObject gunshotParticle;
+    private GameObject currentGun;
+
+
 	public void Fire (int damageAmount) {
         // Audio
         GetComponent<AudioSource>().Play();
+
+        //particle effect
+        Instantiate(gunshotParticle, currentGun.transform);
+        Destroy(gunshotParticle, .9f);
         
         //shoots a raycast from Viewport point (.5, .5, 0)--the center of the screen
 		//(the center of the crosshair)
@@ -57,6 +65,8 @@ public class RaycastShoot : MonoBehaviour {
 		crosshair = Instantiate(crosshairPrefab, UICanvas.transform, false);
 
 		screenshake = FindObjectOfType<ScreenShake>();
-	}
+
+        currentGun = GameObject.Find("CurrentGun");
+    }
 
 }
