@@ -21,6 +21,7 @@ public class RoundManager : MonoBehaviour {
 	[HideInInspector] public static RoundManager instance; //singleton
 
 	public List<GameObject> enemyPrefabs = new List<GameObject>();
+	public List<int> enemyMaxCounts = new List<int>();
 
 	public float timeBetweenRounds = 10f;
 
@@ -44,6 +45,18 @@ public class RoundManager : MonoBehaviour {
 		enemies.Add(enemy.GetComponent<HealthSystem>());
 	}
 
+	public int GetNumEnemiesOfType(BaseEnemy enemy) {
+		//returns number of enemies of type enemy currently alive and in the scene
+		int countOfType = 0;
+		foreach(HealthSystem curr in enemies) {
+			if (curr.GetComponent<BaseEnemy>().enemyType == enemy.enemyType 
+				&& curr.Status != HealthSystem.HealthStatus.Dead) {
+				countOfType++;
+			}
+		}
+		return countOfType;
+	}
+
 	private bool areAllEnemiesDead() {
 		if (enemies.Count == 0) {
 			//null question--no enemies can be dead if no enemies exist
@@ -60,9 +73,14 @@ public class RoundManager : MonoBehaviour {
 	void loadEnemyPrefabsIntoSpawners() {
 		//sets SpawnCloset.enemyPrefabs to this.enemyPrefabs
 		//called at the start of every round in case a mutation changes enemy types being spawned
+		//also transfers the enemyMaxCounts in the same way
 		SpawnCloset.enemyPrefabs.Clear();
 		foreach (GameObject enemy in enemyPrefabs) {
 			SpawnCloset.enemyPrefabs.Add(enemy);
+		}
+		SpawnCloset.enemyMaxCounts.Clear();
+		foreach (int maxCount in enemyMaxCounts) {
+			SpawnCloset.enemyMaxCounts.Add(maxCount);
 		}
 	}
 
@@ -136,6 +154,18 @@ public class RoundManager : MonoBehaviour {
 	void Start () {
 		//establish singleton
 		instance = this;
+
+		bool hasUnlimitedEnemy = false;
+		foreach (int value in enemyMaxCounts) {
+			if (value < 0) {
+				hasUnlimitedEnemy = true;
+				break;
+			}
+		}
+		if (!hasUnlimitedEnemy) {
+			Debug.LogError("ERROR: ensure at least one enemy has a negative max count (this means it's unlimited)");
+			throw new UnityException();
+		}
 
 		fullscreenController = GetComponent<FullscreenMode>();
 
