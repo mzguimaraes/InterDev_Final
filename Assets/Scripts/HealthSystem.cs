@@ -65,6 +65,8 @@ public class HealthSystem : MonoBehaviour {
 
 		GetComponent<BaseEnemy>().Die();
 
+        Comments_Manager.enemy_died = true;
+
         gameObject.SetActive(false); //so that RoundManager can still check to see that it's dead
 	}
 

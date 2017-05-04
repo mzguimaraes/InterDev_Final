@@ -40,7 +40,7 @@ public class RaycastShoot : MonoBehaviour {
 		Bullet bullet = Instantiate(bulletPrefab, transform.Find(transform.GetChild(0).name+"/BarrelEnd").position, transform.rotation);
 //		bullet.transform.LookAt(rch.point);
 
-		screenshake.ShakeScreen(10f);
+		// screenshake.ShakeScreen(10f);
 
 //		try {
 //			HealthSystem healthObj = rch.collider.gameObject.GetComponent<HealthSystem>();
