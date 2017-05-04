@@ -27,7 +27,7 @@ public class GunScript_RaycastClone : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//See if the player has a gun at all and if they press the LMB
-		if (HaveGun && !Revolver && Input.GetKeyDown (KeyCode.Mouse0)) {
+		if (HaveGun && Pistol && Input.GetKeyDown (KeyCode.Mouse0)) {
 			//if they have a pistol, shoot a pistol bullet, same goes for the revolver and rifle variables
 			firingTrigger.Fire(damageAmount);
 		}
@@ -79,10 +79,8 @@ public class GunScript_RaycastClone : MonoBehaviour {
 				Revolver = false;
 				Harpoon = false;
 				Shotgun = false;
-
-
 			}
-			if (other.gameObject.name == "Shotgun") {
+			if (other.gameObject.name == "ShotGun") {
 				//				Debug.Log ("RIFLE");
 				Shotgun = true;
 				Rifle = false;
