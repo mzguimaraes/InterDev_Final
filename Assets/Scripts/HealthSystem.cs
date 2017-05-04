@@ -35,6 +35,9 @@ public class HealthSystem : MonoBehaviour {
 //		Debug.Log(gameObject.name + " took damage");
 //		if (gameObject.tag == "Player") screenshake.ShakeScreen( (float) amount );
 		currHealth -= amount;
+		if (gameObject.tag == "Enemy") {
+			GetComponent<BaseEnemy>().TakeDamage();
+		}
 	}
 
     public void AddHealth(int amount)
@@ -61,6 +64,8 @@ public class HealthSystem : MonoBehaviour {
         death.SpawnPickup();
 
 		GetComponent<BaseEnemy>().Die();
+
+        Comments_Manager.enemy_died = true;
 
         gameObject.SetActive(false); //so that RoundManager can still check to see that it's dead
 	}

@@ -57,13 +57,11 @@ public abstract class BaseEnemy : MonoBehaviour {
 		return MoveToDestination(player);
 	}
 
-	// Use this for initialization
 	protected virtual void Awake () {
 		gameObject.tag = "Enemy";
 		player = FindObjectOfType<OurPlayerController>().transform;
 	}
 	
-	// Update is called once per frame
 	protected virtual void Update () {
 		HandleState(currState);
 	}
@@ -128,10 +126,13 @@ public abstract class BaseEnemy : MonoBehaviour {
 	protected abstract void HandleChasing();
 	protected abstract void ExitChasing();
 
-	//-------------------------------------------------------//
+    //-------------------------------------------------------//
 
-	public abstract void Die(); //for HealthSystem to call
+    public abstract void Die();
 
 	protected abstract void EnterDead();
 	protected abstract void HandleDead();
+
+	//Taking damage
+	public abstract void TakeDamage();
 }
