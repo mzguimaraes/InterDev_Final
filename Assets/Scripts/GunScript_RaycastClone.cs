@@ -10,7 +10,10 @@ public class GunScript_RaycastClone : MonoBehaviour {
 	bool Pistol = true;
 	bool Revolver = false;
 	bool Rifle = false;
+	bool Harpoon = false;
+	bool Shotgun = false;
 	public GameObject PistolGun;
+
 
 	public int damageAmount = 1;
 
@@ -24,10 +27,19 @@ public class GunScript_RaycastClone : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//See if the player has a gun at all and if they press the LMB
-		if (HaveGun && Input.GetKeyDown (KeyCode.Mouse0)) {
+		if (HaveGun && !Revolver && Input.GetKeyDown (KeyCode.Mouse0)) {
 			//if they have a pistol, shoot a pistol bullet, same goes for the revolver and rifle variables
 			firingTrigger.Fire(damageAmount);
 		}
+		if (HaveGun && Revolver && Input.GetKeyDown (KeyCode.Mouse0)) {
+			//if they have a pistol, shoot a pistol bullet, same goes for the revolver and rifle variables
+			firingTrigger.RevolverFire(damageAmount);
+		}
+		if (HaveGun && Shotgun && Input.GetKeyDown (KeyCode.Mouse0)) {
+			//if they have a pistol, shoot a pistol bullet, same goes for the revolver and rifle variables
+			firingTrigger.ShotGunFire(damageAmount);
+		}
+
 	}
 		
 	void OnTriggerEnter(Collider other){
@@ -48,18 +60,45 @@ public class GunScript_RaycastClone : MonoBehaviour {
 				Pistol = true;
 				Revolver = false;
 				Rifle = false;
+				Harpoon = false;
+				Shotgun = false;
+
 			}
 			if (other.gameObject.name == "RevolverGun") {
 //				Debug.Log ("Revolver");
 				Revolver = true;
 				Pistol = false;
 				Rifle = false;
+				Harpoon = false;
+				Shotgun = false;
 			}
 			if (other.gameObject.name == "RifleGun") {
 //				Debug.Log ("RIFLE");
 				Rifle = true;
 				Pistol = false;
 				Revolver = false;
+				Harpoon = false;
+				Shotgun = false;
+
+
+			}
+			if (other.gameObject.name == "Shotgun") {
+				//				Debug.Log ("RIFLE");
+				Shotgun = true;
+				Rifle = false;
+				Pistol = false;
+				Revolver = false;
+				Harpoon = false;
+
+			}
+			if (other.gameObject.name == "HarpoonGun") {
+				//				Debug.Log ("RIFLE");
+				Harpoon = true;
+				Rifle = false;
+				Pistol = false;
+				Revolver = false;
+				Shotgun = false;
+
 			}
 		}
 	}
