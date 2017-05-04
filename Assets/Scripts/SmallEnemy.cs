@@ -18,17 +18,18 @@ public class SmallEnemy : BaseEnemy {
 	public float strafeShootRange = 10f;
 	public float rangeTolerance = 2f;
 	public float strafeSpeedScalar = 0.75f;
+    public Animator smallboyAnim;
 
 	void StrafeAround(Transform pivot) {
-		//moves in a CCW circle around the pivot point
+        //moves in a CCW circle around the pivot point
 		transform.LookAt(pivot);
 		float strafeSpeed = PowerUpManager.baseEnemySpeed * strafeSpeedScalar;
 		transform.position += transform.right * Time.deltaTime * strafeSpeed;
 	}
 
 	void ShootAt(Transform target) {
-		//fires one bullet toward target
-		//		Debug.Log("fire!");
+        //fires one bullet toward target
+        //		Debug.Log("fire!");
 		Vector3 toTarget = (target.position - transform.position).normalized;
 		Instantiate(bulletPrefab, transform.position, Quaternion.LookRotation(toTarget));
 	}
@@ -53,8 +54,11 @@ public class SmallEnemy : BaseEnemy {
 
 	protected override void EnterAttacking ()
 	{
-		//left empty for future animations/sound cues (same with similar empty method overrides)
-	}
+        //left empty for future animations/sound cues (same with similar empty method overrides)
+        smallboyAnim.SetBool("isMoving", false);
+        smallboyAnim.SetBool("isWounded", false);
+        smallboyAnim.SetBool("isShooting", true);
+    }
 
 	protected override void HandleAttacking ()
 	{
@@ -82,7 +86,10 @@ public class SmallEnemy : BaseEnemy {
 
 	protected override void EnterChasing ()
 	{
-	}
+        smallboyAnim.SetBool("isWounded", false);
+        smallboyAnim.SetBool("isShooting", false);
+        smallboyAnim.SetBool("isMoving", true);
+    }
 
 	protected override void HandleChasing ()
 	{
@@ -100,10 +107,9 @@ public class SmallEnemy : BaseEnemy {
 
 	//-------------------------------------------------------//
 	//Dead
-
-	public override void Die() {
+	public override void Die () 
+	{
 		EnterState(State.Dead);
-//		Debug.Log(gameObject.name + " called Die()");
 	}
 
 	protected override void EnterDead ()
@@ -114,7 +120,12 @@ public class SmallEnemy : BaseEnemy {
 	{
 	}
 
-
+	public override void TakeDamage ()
+	{
+        smallboyAnim.SetBool("isShooting", false);
+        smallboyAnim.SetBool("isMoving", false);
+        smallboyAnim.SetBool("isWounded", true);
+	}
 
 	#endregion
 }
