@@ -34,6 +34,7 @@ public class EnemyCynthia : BaseEnemy {
 	void Start() {
 		chargeTimer = 0f;
         cynthiaAnim.SetBool("isWalking", true);
+		enemyType = EnemyType.Large;
 	}
 
 	protected override void Update() {
