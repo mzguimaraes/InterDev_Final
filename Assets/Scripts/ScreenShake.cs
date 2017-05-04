@@ -8,6 +8,8 @@ public class ScreenShake : MonoBehaviour {
 
 	Vector3 startPos;
 
+	Coroutine shakeRoutine;
+
 	IEnumerator Shake(float intensity) {
 		startPos = transform.localPosition;
 		float currIntensity = intensity;
@@ -24,7 +26,10 @@ public class ScreenShake : MonoBehaviour {
 	}
 
 	public void ShakeScreen(float intensity) {
-		StartCoroutine(Shake(intensity));
+		if (shakeRoutine != null)
+			StopCoroutine(shakeRoutine);
+		transform.localPosition = startPos;
+		shakeRoutine = StartCoroutine(Shake(intensity));
 	}
 
 }
