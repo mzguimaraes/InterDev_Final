@@ -127,6 +127,10 @@ public class SmallEnemy : BaseEnemy {
         smallboyAnim.SetBool("isShooting", false);
         smallboyAnim.SetBool("isMoving", false);
         smallboyAnim.SetBool("isWounded", true);
+
+		//flash red
+		Material[] mats = GetComponent<Renderer>().materials;
+		StartCoroutine(FlashRed(mats));
 	}
 
 	#endregion

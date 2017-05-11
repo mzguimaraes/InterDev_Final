@@ -62,6 +62,21 @@ public abstract class BaseEnemy : MonoBehaviour {
 		return MoveToDestination(player);
 	}
 
+	protected IEnumerator FlashRed(Material[] mats) {
+		float timer = 0f;
+
+		for (int i = 0; i < mats.GetLength(0); i ++) {
+			mats[i].SetColor("_EmissionColor", Color.red);
+		}
+		while (timer < .1f) {
+			timer += Time.deltaTime;
+			yield return null;
+		}
+		for (int i = 0; i < mats.GetLength(0); i ++) {
+			mats[i].SetColor("_EmissionColor", Color.black);
+		}
+	}
+
 	protected virtual void Awake () {
 		gameObject.tag = "Enemy";
 		player = FindObjectOfType<OurPlayerController>().transform;
@@ -101,9 +116,7 @@ public abstract class BaseEnemy : MonoBehaviour {
 			break;
 		}
 	}
-
-
-
+		
 	protected virtual void ExitState (State state) {
 		switch (state) {
 		case State.Attacking:
