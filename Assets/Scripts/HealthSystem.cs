@@ -74,7 +74,7 @@ public class HealthSystem : MonoBehaviour {
 		//Disable input and enable restart
 		GetComponent<OurPlayerController>().enabled = false;
 		GetComponent<MouseLook>().enabled = false;
-		GetComponentInChildren<GunScript>().enabled = false;
+		GetComponentInChildren<GunScript_RaycastClone>().enabled = false;
 
 		GetComponent<PlayerRestart>().Activate();
 	}
