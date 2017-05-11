@@ -170,6 +170,8 @@ public class EnemyCynthia : BaseEnemy {
 
 	protected override void EnterChasing ()
 	{
+		cynthiaAnim.SetBool("isWalking", true);
+		cynthiaAnim.SetBool("isIdle", false);
 	}
 
 	protected override void HandleChasing ()
@@ -204,7 +206,8 @@ public class EnemyCynthia : BaseEnemy {
 
 	public override void TakeDamage ()
 	{
-		
+		Material[] mats = GetComponentInChildren<Renderer>().materials;
+		StartCoroutine(FlashRed(mats));
 	}
 	#endregion
 

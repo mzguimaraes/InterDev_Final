@@ -37,6 +37,7 @@ public class SmallEnemy : BaseEnemy {
 	void Start () {
 		fireTimer = 0f;
 		enemyType = EnemyType.Small;
+		smallboyAnim.SetBool("isMoving", true);
 	}
 
 	#region implemented abstract members of BaseEnemy
@@ -124,9 +125,13 @@ public class SmallEnemy : BaseEnemy {
 
 	public override void TakeDamage ()
 	{
-        smallboyAnim.SetBool("isShooting", false);
-        smallboyAnim.SetBool("isMoving", false);
+//        smallboyAnim.SetBool("isShooting", false);
+//        smallboyAnim.SetBool("isMoving", false);
         smallboyAnim.SetBool("isWounded", true);
+
+		//flash red
+		Material[] mats = GetComponent<Renderer>().materials;
+		StartCoroutine(FlashRed(mats));
 	}
 
 	#endregion
