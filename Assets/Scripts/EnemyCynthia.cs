@@ -174,8 +174,9 @@ public class EnemyCynthia : BaseEnemy {
 
 	protected override void EnterChasing ()
 	{
-		cynthiaAnim.SetBool("isWalking", true);
-		cynthiaAnim.SetBool("isIdle", false);
+        cynthiaAnim.SetBool("isWounded", false);
+        cynthiaAnim.SetBool("isIdle", false);
+        cynthiaAnim.SetBool("isWalking", true);
 	}
 
 	protected override void HandleChasing ()
@@ -212,6 +213,9 @@ public class EnemyCynthia : BaseEnemy {
 	{
 		Material[] mats = GetComponentInChildren<Renderer>().materials;
 		StartCoroutine(FlashRed(mats));
+        cynthiaAnim.SetBool("isIdle", false);
+        cynthiaAnim.SetBool("isWalking", false);
+        cynthiaAnim.SetBool("isWounded", true);
 	}
 	#endregion
 
@@ -222,6 +226,7 @@ public class EnemyCynthia : BaseEnemy {
 
 	protected void EnterCharging ()
 	{
+        cynthiaAnim.SetBool("isWounded", false);
         cynthiaAnim.SetBool("isIdle", false);
         cynthiaAnim.SetBool("isWalking", true);
 		chargeTimer = chargeCooldown;
@@ -252,6 +257,7 @@ public class EnemyCynthia : BaseEnemy {
 
 	protected void EnterStunned ()
 	{
+        cynthiaAnim.SetBool("isWounded", false);
         cynthiaAnim.SetBool("isWalking", false);
         cynthiaAnim.SetBool("isIdle", true);
 		stunTimer = stunLength;
