@@ -83,7 +83,6 @@ public class GunScript_RaycastClone : MonoBehaviour {
 				Rifle = false;
 				Harpoon = false;
 				Shotgun = false;
-
 			}
 			if (other.gameObject.name == "RevolverGun(Clone)") {
 				Revolver = true;
