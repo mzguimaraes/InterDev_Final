@@ -14,6 +14,15 @@ public class GunScript_RaycastClone : MonoBehaviour {
 	bool Shotgun = false;
 	public GameObject PistolGun;
 
+	float PistolFireRate = 0.15f;
+	float PistolFireDelay = 0.0f;
+
+	float RevolverFireRate = 0.3f;
+	float RevolverFireDelay = 0.0f;
+
+	float AutoFireRate = 0.2f;
+	float AutoFireDelay = 0.0f;
+
 
 	public int damageAmount = 1;
 
@@ -27,17 +36,30 @@ public class GunScript_RaycastClone : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//See if the player has a gun at all and if they press the LMB
-		if (HaveGun && !Revolver && Input.GetKeyDown (KeyCode.Mouse0)) {
-			//if they have a pistol, shoot a pistol bullet, same goes for the revolver and rifle variables
-			firingTrigger.Fire(damageAmount);
+		if (HaveGun && Pistol && Input.GetKeyDown (KeyCode.Mouse0)) {
+			if (Time.time - PistolFireDelay > PistolFireRate) {
+				//if they have a pistol, shoot a pistol bullet, same goes for the revolver and rifle variables
+				PistolFireDelay = Time.time;
+				firingTrigger.Fire (damageAmount);
+			}
 		}
 		if (HaveGun && Revolver && Input.GetKeyDown (KeyCode.Mouse0)) {
-			//if they have a pistol, shoot a pistol bullet, same goes for the revolver and rifle variables
-			firingTrigger.RevolverFire(damageAmount);
+			if (Time.time - RevolverFireDelay > RevolverFireRate) {
+				//if they have a pistol, shoot a pistol bullet, same goes for the revolver and rifle variables
+				RevolverFireDelay = Time.time;
+				firingTrigger.RevolverFire (damageAmount);
+			}
 		}
 		if (HaveGun && Shotgun && Input.GetKeyDown (KeyCode.Mouse0)) {
 			//if they have a pistol, shoot a pistol bullet, same goes for the revolver and rifle variables
 			firingTrigger.ShotGunFire(damageAmount);
+		}
+		if (HaveGun && Rifle && Input.GetKey (KeyCode.Mouse0)) {
+			if (Time.time - AutoFireDelay > AutoFireRate) {
+				//if they have a pistol, shoot a pistol bullet, same goes for the revolver and rifle variables
+				AutoFireDelay = Time.time;
+				firingTrigger.ShotGunFire (damageAmount);
+			}
 		}
 
 	}
@@ -56,7 +78,6 @@ public class GunScript_RaycastClone : MonoBehaviour {
 			other.transform.position = this.transform.position;
 			//each gun has their name that coorrelates with the boolean that works within update to shoot the proper bullet
 			if (other.gameObject.name == "PistolGun") {
-//				Debug.Log ("PISTOL");
 				Pistol = true;
 				Revolver = false;
 				Rifle = false;
@@ -64,26 +85,21 @@ public class GunScript_RaycastClone : MonoBehaviour {
 				Shotgun = false;
 
 			}
-			if (other.gameObject.name == "RevolverGun") {
-//				Debug.Log ("Revolver");
+			if (other.gameObject.name == "RevolverGun(Clone)") {
 				Revolver = true;
 				Pistol = false;
 				Rifle = false;
 				Harpoon = false;
 				Shotgun = false;
 			}
-			if (other.gameObject.name == "RifleGun") {
-//				Debug.Log ("RIFLE");
+			if (other.gameObject.name == "RifleGun(Clone)") {
 				Rifle = true;
 				Pistol = false;
 				Revolver = false;
 				Harpoon = false;
 				Shotgun = false;
-
-
 			}
-			if (other.gameObject.name == "Shotgun") {
-				//				Debug.Log ("RIFLE");
+			if (other.gameObject.name == "ShotGun(Clone)") {
 				Shotgun = true;
 				Rifle = false;
 				Pistol = false;
@@ -91,8 +107,7 @@ public class GunScript_RaycastClone : MonoBehaviour {
 				Harpoon = false;
 
 			}
-			if (other.gameObject.name == "HarpoonGun") {
-				//				Debug.Log ("RIFLE");
+			if (other.gameObject.name == "HarpoonGun(Clone)") {
 				Harpoon = true;
 				Rifle = false;
 				Pistol = false;

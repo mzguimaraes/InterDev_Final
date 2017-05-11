@@ -14,6 +14,15 @@ public class MediumEnemy : BaseEnemy {
 	public float speed = 5f;
 	public GameObject cloudPrefab;
 
+	Vector3 cloudDest;
+
+	public float destinationAreaRadius = 100f;
+
+	void Start () {
+		cloudDest = Random.insideUnitCircle * destinationAreaRadius;
+		enemyType = EnemyType.Medium;
+	}
+
 	#region implemented abstract members of BaseEnemy
 	protected override float Speed {
 		get {
@@ -23,7 +32,8 @@ public class MediumEnemy : BaseEnemy {
 			speed = value;
 		}
 	}
-		
+
+	//-------------------------------------------------------//
 	//Attacking: place cloud
 	protected override void EnterAttacking ()
 	{
@@ -43,7 +53,7 @@ public class MediumEnemy : BaseEnemy {
 
 	protected override void EnterChasing ()
 	{
-		throw new System.NotImplementedException ();
+		//do nothing
 	}
 	protected override void HandleChasing ()
 	{
