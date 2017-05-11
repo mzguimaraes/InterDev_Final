@@ -18,8 +18,19 @@ public class MouseLook : MonoBehaviour {
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
 		//1. Get mouse input data
+
 		float mouseX = Input.GetAxis ("Mouse X") * Time.deltaTime * 100f; // mouseDelta or horizontal mouseSpeed
 		float mouseY = Input.GetAxis ("Mouse Y") * Time.deltaTime * 100f; // vertical mouseSpeed
+
+        if (mouseX < -3f)
+            mouseX = -3f;
+        if (mouseX > 3)
+            mouseX = 3;
+
+        if (mouseY < -3)
+            mouseY = -3;
+        if (mouseY > 3)
+            mouseY = 3;
 
 		//2. Rotate the player
 		transform.Rotate ( 0f, mouseX, 0f);
