@@ -31,6 +31,10 @@ public class EnemyCynthia : BaseEnemy {
 
     public Animator cynthiaAnim;
 
+	void OnDrawGizmos() {
+		Gizmos.DrawWireSphere(transform.position, throwRadius);
+	}
+
 	void Start() {
 		chargeTimer = 0f;
         cynthiaAnim.SetBool("isWalking", true);
@@ -51,7 +55,7 @@ public class EnemyCynthia : BaseEnemy {
 
 	void OnCollisionEnter(Collision col) {
 		//using for melee attack / charge for now
-		// Debug.Log("Hit " + col.collider.name);
+		 Debug.Log("Hit " + col.collider.name);
 
 		if (currState == State.Charging || currState == State.Chasing) {
 			if (col.collider.name == "Player" ) {
@@ -71,7 +75,7 @@ public class EnemyCynthia : BaseEnemy {
 	}
 
 	protected override void EnterState(State state) {
-		// Debug.Log("Entering state: " + state);
+		 Debug.Log("Entering state: " + state);
 
 		ExitState(currState);
 		currState = state;
@@ -96,7 +100,7 @@ public class EnemyCynthia : BaseEnemy {
 	}
 
 	protected override void HandleState (State state) {
-        Debug.Log(state);
+//        Debug.Log(state);
 		switch (state) {
 		case State.Chasing:
 			HandleChasing();
