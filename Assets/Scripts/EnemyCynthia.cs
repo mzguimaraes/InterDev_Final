@@ -204,7 +204,8 @@ public class EnemyCynthia : BaseEnemy {
 
 	public override void TakeDamage ()
 	{
-		
+		Material[] mats = GetComponentInChildren<Renderer>().materials;
+		StartCoroutine(FlashRed(mats));
 	}
 	#endregion
 
