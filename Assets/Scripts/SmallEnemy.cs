@@ -125,8 +125,8 @@ public class SmallEnemy : BaseEnemy {
 
 	public override void TakeDamage ()
 	{
-//        smallboyAnim.SetBool("isShooting", false);
-//        smallboyAnim.SetBool("isMoving", false);
+        smallboyAnim.SetBool("isShooting", false);
+        smallboyAnim.SetBool("isMoving", false);
         smallboyAnim.SetBool("isWounded", true);
 
 		//flash red
