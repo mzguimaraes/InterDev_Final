@@ -9,7 +9,6 @@ public class EnemyDeath : MonoBehaviour {
 
     public Transform revolverPickupPrefab;
     public Transform riflePickupPrefab;
-	public Transform HarpoonGunPickupPrefab;
 	public Transform ShotGunPickupPrefab;
 	public Transform SniperPickupPrefab;
     public Transform healthPickupPrefab;
@@ -22,10 +21,6 @@ public class EnemyDeath : MonoBehaviour {
         {
             Instantiate(riflePickupPrefab, gameObject.transform.position, Quaternion.identity);
         }
-		else if (randNum > 90f)
-		{
-			Instantiate(HarpoonGunPickupPrefab, gameObject.transform.position, Quaternion.identity);
-		}
         else if (randNum > 85f)
         {
             Instantiate(revolverPickupPrefab, gameObject.transform.position, Quaternion.identity);
