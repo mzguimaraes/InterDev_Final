@@ -14,7 +14,7 @@ public class GunScript_RaycastClone : MonoBehaviour {
 	bool Shotgun = false;
 	public GameObject PistolGun;
 
-	float PistolFireRate = 0.15f;
+	float PistolFireRate = 0.2f;
 	float PistolFireDelay = 0.0f;
 
 	float RevolverFireRate = 0.3f;
