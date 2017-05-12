@@ -53,7 +53,7 @@ public class EnemyCynthia : BaseEnemy {
 
 	void OnCollisionEnter(Collision col) {
 		//using for melee attack / charge for now
-		 Debug.Log("Hit " + col.collider.name);
+//		 Debug.Log("Hit " + col.collider.name);
 
 		if (currState == State.Charging || currState == State.Chasing) {
 			if (col.collider.name == "Player" ) {
@@ -73,7 +73,7 @@ public class EnemyCynthia : BaseEnemy {
 	}
 
 	protected override void EnterState(State state) {
-		 Debug.Log("Entering state: " + state);
+//		 Debug.Log("Entering state: " + state);
 
 		ExitState(currState);
 		currState = state;
