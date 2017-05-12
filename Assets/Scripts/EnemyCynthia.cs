@@ -9,8 +9,6 @@ public class EnemyCynthia : BaseEnemy {
 	 * Melee attack when in range
 	 */
 
-	//TODO: test in editor
-
 	public float walkSpeed = 5f;
 	public float chargeSpeed = 15f;
 
