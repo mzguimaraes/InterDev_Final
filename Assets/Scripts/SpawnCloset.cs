@@ -12,6 +12,9 @@ public class SpawnCloset : MonoBehaviour {
 	private float spawnInterval;
 	private float spawnCountdown = 0f;
 
+	private Transform player;
+	public float spawnCancelRadius = 10f;
+
 	public void startRound(int numEnemies, float timeBetweenSpawns) {
 		//starts a new round that will spawn numEnemies enemies 
 		//with a semi-random spawn interval centered at timeBetweenSpawns
@@ -45,15 +48,26 @@ public class SpawnCloset : MonoBehaviour {
 	void OnDrawGizmos() {
 		Gizmos.color = Color.red;
 		Gizmos.DrawCube(transform.position, 2f * Vector3.one);
+		Gizmos.DrawWireSphere(transform.position, spawnCancelRadius);
 	}
-	
+
+	void Start () {
+		player = GameObject.Find("Player").transform;
+	}
+
 	void Update () {
 		if (numEnemiesToSpawn > 0) { //round active
 			spawnCountdown -= Time.deltaTime;
 
+			//TODO: make spawn cancel spawn the enemy somewhere else
 			if (spawnCountdown <= 0f) {
-				//Debug.Log("spawn timer: " + spawnCountdown);
-				spawnEnemy();
+				if (Vector3.Distance(transform.position, player.position) > spawnCancelRadius) {
+					//Debug.Log("spawn timer: " + spawnCountdown);
+					spawnEnemy();
+				}
+				else {
+					spawnCountdown = getSpawnCountdown();
+				}
 			}
 		}
 	}

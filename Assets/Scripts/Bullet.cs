@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col) {
 		HealthSystem health = col.gameObject.GetComponent<HealthSystem>();
-		if (health != null) {
+		if (health != null && col.gameObject.CompareTag("Player")) {
 //			Debug.Log("Sending damage to " + col.name);
 			health.TakeDamage(damage);
 		}

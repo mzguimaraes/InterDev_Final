@@ -6,6 +6,8 @@ public class MouseLook : MonoBehaviour {
 
 	float UpDownLook = 0f;
 
+	public float maxMouseDelta = 3f;
+
 	private Camera cam;
 
 	void Start () { 
@@ -22,15 +24,17 @@ public class MouseLook : MonoBehaviour {
 		float mouseX = Input.GetAxis ("Mouse X") * Time.deltaTime * 100f; // mouseDelta or horizontal mouseSpeed
 		float mouseY = Input.GetAxis ("Mouse Y") * Time.deltaTime * 100f; // vertical mouseSpeed
 
-        if (mouseX < -3f)
-            mouseX = -3f;
-        if (mouseX > 3)
-            mouseX = 3;
+        if (mouseX < -maxMouseDelta)
+            mouseX = -maxMouseDelta;
+        if (mouseX > maxMouseDelta)
+			mouseX = maxMouseDelta;
 
-        if (mouseY < -3)
-            mouseY = -3;
-        if (mouseY > 3)
-            mouseY = 3;
+		if (mouseY < -maxMouseDelta)
+			mouseY = -maxMouseDelta;
+		if (mouseY > maxMouseDelta)
+			mouseY = maxMouseDelta;
+//		Mathf.Clamp(mouseX, -maxMouseDelta, maxMouseDelta);
+//		Mathf.Clamp(mouseY, -maxMouseDelta, maxMouseDelta);
 
 		//2. Rotate the player
 		transform.Rotate ( 0f, mouseX, 0f);
