@@ -91,6 +91,10 @@ public class HealthSystem : MonoBehaviour {
 //			Debug.Log("Die() called on undying object " + gameObject.name);
 		}
 	}
+
+	public void Kill() {
+		Die();
+	}
 	
 	// Update is called once per frame
 	void Update () {

@@ -29,6 +29,8 @@ public class EnemyCynthia : BaseEnemy {
 
     public Animator cynthiaAnim;
 
+	static float globalAttackCooldown;
+
 	void OnDrawGizmos() {
 		Gizmos.DrawWireSphere(transform.position, throwRadius);
 	}
@@ -37,18 +39,22 @@ public class EnemyCynthia : BaseEnemy {
 		chargeTimer = 0f;
         cynthiaAnim.SetBool("isWalking", true);
 		enemyType = EnemyType.Large;
+		globalAttackCooldown = stunLength;
 	}
-
+		
 	protected override void Update() {
 		base.Update();
-		if (Vector3.Distance(transform.position, player.position) <= throwRadius) {
+		if (globalAttackCooldown <= 0f && Vector3.Distance(transform.position, player.position) <= throwRadius) {
 			//throw player TODO: refactor
 			Vector3 impact = (player.position - transform.position).normalized;
 			impact *= chargeImpactMagnitude;
 			impact += new Vector3(0f, chargeImpactMagnitude / 2, 0f);
 			player.gameObject.GetComponent<HealthSystem>().TakeDamage(chargeDamage);
 			player.gameObject.GetComponent<Rigidbody>().AddForce(impact);
+			globalAttackCooldown = stunLength;
 		}
+
+		globalAttackCooldown -= Time.deltaTime;
 	}
 
 	void OnCollisionEnter(Collision col) {
@@ -56,7 +62,7 @@ public class EnemyCynthia : BaseEnemy {
 //		 Debug.Log("Hit " + col.collider.name);
 
 		if (currState == State.Charging || currState == State.Chasing) {
-			if (col.collider.name == "Player" ) {
+			if (globalAttackCooldown <= 0f && col.collider.name == "Player" ) {
 				//do damage
 				col.collider.GetComponent<HealthSystem>().TakeDamage(chargeDamage);
 				//push backwards and up
@@ -64,6 +70,7 @@ public class EnemyCynthia : BaseEnemy {
 				impactForce += new Vector3(0f, chargeImpactMagnitude / 2, 0f);
 				// Debug.Log("Impact force == " + impactForce.ToString());
 				col.collider.gameObject.GetComponent<Rigidbody>().AddForce(impactForce);
+				globalAttackCooldown = stunLength;
 			}
 			else if (col.collider.tag == "Arena") {
 				EnterState(State.Chasing);
